@@ -5,7 +5,7 @@ class Property;
 
 
 class Player {
-    string name;
+    std::string name;
     std::vector<Property*> owned;
     int assets;
     bool bankruptcy;
@@ -15,7 +15,7 @@ class Player {
     int RUTR;
     bool atTims;
     public:
-        Player(string name. int assets, int position);
+        Player(std::string name, int assets, int position);
         std::vector<Property*> getProp();
         void addProp(Property* p);
         int addAssets();
