@@ -6,7 +6,7 @@ class Property;
 
 class Player {
     string name;
-    <Property*> owned;
+    std::vector<Property*> owned;
     int assets;
     bool bankruptcy;
     // TutionPaid was not present in the UML
@@ -16,7 +16,7 @@ class Player {
     bool atTims;
     public:
         Player(string name. int assets, int position);
-        <Property*> getProp();
+        std::vector<Property*> getProp();
         void addProp(Property* p);
         int addAssets();
         // Get Assets was not present in UML
