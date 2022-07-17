@@ -10,7 +10,8 @@ Task List
 - [x] state.h
 - [x] property.h
 - [x] property.cc
-
+- [x] academicInfo
+- [ ] Improvements
 
 
 ---
