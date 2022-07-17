@@ -1,6 +1,6 @@
 #include "player.h"
 
-Player::Player(string name, int assets, int position){
+Player::Player(std::string name, int assets, int position){
   
 }
 
