@@ -4,30 +4,30 @@
 
 }
 
-<Players *> players{
+<Players *> Grid::players{
 
 }
-<string, int> piece{
-
-}
-
-void roll(){
+<string, int> Grid::piece{
 
 }
 
-void nextTurn(){
+void Grid::roll(){
 
 }
 
-void trade(){
+void Grid::nextTurn(){
 
 }
 
-Property* getProperty(string propertyName){
+void Grid::trade(){
 
 }
 
-void Grid:: buyProperty(Property* p){
+Property* Grid::getProperty(string propertyName){
+
+}
+
+void Grid:: Grid::buyProperty(Property* p){
 
 }
 
