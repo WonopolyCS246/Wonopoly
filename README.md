@@ -1,4 +1,19 @@
 # Wotopoly - The UWaterloo Monopoly
+---
+Task List
+- [x] player.h
+- [ ] player.cc (BoilerPlate Ready)
+- [x] grid.h
+- [ ] grid.cc (BoilerPlate Ready)
+- [x] roll2die.h
+- [x] roll2die.cc
+- [x] state.h
+- [x] property.h
+- [x] property.cc
+
+
+
+---
 ## Plan Of Attack
 Made By:
 Medhansh Hinduja (mhinduja)
