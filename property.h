@@ -6,3 +6,4 @@ class Property{
   void applyRule() = 0;
   Player* getOwner() = 0;
 };
+
