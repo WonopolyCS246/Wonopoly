@@ -12,7 +12,7 @@ Task List
 - [x] property.cc
 - [x] academicInfo
 - [ ] Improvements
-
+- [ ] SNH All work (Building --> Bector)
 
 ---
 ## Plan Of Attack
