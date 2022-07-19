@@ -36,10 +36,10 @@ void Slc :: applyRule(Player *p ){
     } else if (Val ==  "GoToDC"){
         // TO-DO: Sent to TIMS on the grid
         p->setAtTims(true);
-        p->setPosition();
+        p->setPosition(10);
     } else if (Val == "OASP"){
         // TO-DO: Sent to OSAP on the grid
-        p->setPosition();
+        p->setPosition(0);
     } else {
         std::cout << "Problem with apply rule SLC" << std::endl;
         // Just in Case
