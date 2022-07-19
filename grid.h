@@ -1,4 +1,3 @@
-
 #ifndef GRID
 #define GRID
 
@@ -13,24 +12,28 @@
 
 class Grid
 {
+  int numPlayers; // field added
   std::vector<Property *> card;
   std::vector<Player *> players;
-  std::unordered_map<string, int> piece;
+  std::vector<char> disp; // stores each player's character with which it is represented on the board
+  std::unordered_map<std::string, int> piece;
+
+  void print();
 
 public:
-  Grid(ifstream &infile);
+  Grid(std::ifstream infile);
   ~Grid();
   void roll();
   void nextTurn();
   void trade();
-  Property *getProperty(string propertyName);
+  Property *getProperty(std::string propertyName);
   void buyProperty(Property *p);
   void sellProperty(Property *p);
   void mortgage(Property *p);
   void unmortgage(Property *p);
   bool bankrupt();
   int assets();
-  int all;
+  int all();
   // Explicitly defining the type of auction
   void auctionProperty(Property *p);
   // auctionPlayer() calls auctionProperty() on all properties owned by player
