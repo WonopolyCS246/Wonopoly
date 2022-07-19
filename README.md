@@ -13,7 +13,7 @@ Task List
 - [x] Subject.h (Priyanshu)
 - [x] observer.h (Priyanshu)
 - [x] info.h (Priyanshu)
-- [] rez.h (taken by:- Priyanshu)
+- [ ] rez.h (taken by:- Priyanshu)
 - [x] academicInfo
 - [ ] Improvements
 - [ ] SNH All work (Building --> Bector)
