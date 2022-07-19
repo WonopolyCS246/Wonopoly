@@ -1,9 +1,19 @@
-#include <iostream>
-#include "player.h"
-class Property{
-  void addOwner(Player * p) = 0;
-  bool isNewOwnable() = 0;
-  void applyRule() = 0;
-  Player* getOwner() = 0;
+#ifndef PROPERTY_H
+#define PROPERTY_H
+
+class Player; // forward declaration
+
+class Property
+{
+  Player *owner; // pointer to the owner of the property
+
+public:
+  Property(); // default constructor
+  virtual void addOwner(Player *p) = 0;
+  virtual bool isNewOwnable() = 0;
+  virtual void applyRule() = 0;
+  virtual Player *getOwner() = 0;
+  
 };
 
+#endif
