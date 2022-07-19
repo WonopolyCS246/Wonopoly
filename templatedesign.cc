@@ -23,6 +23,7 @@ float templateDesign :: random(){
 
 void Slc :: applyRule(Player *p ){
     std::string Val = Rule(this->random());
+    p->setPreviousPosition(p->getPosition());
     if (Val == "Back3"){
         p->setPosition(p->getPosition() - 3);
     } else if (Val == "Back2") {
