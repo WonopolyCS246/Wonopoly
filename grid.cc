@@ -24,7 +24,7 @@ Grid::Grid(std::ifstream infile) {
             int pos;
             cin >> pos; // Position on the board
             if (pos == 10) { // means that the player is at 
-                
+                // This is samoke 
             }
             Player *p = new Player{name, assets, pos};
             p->setRUTR(tc);
