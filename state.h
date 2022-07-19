@@ -1,6 +1,7 @@
 #ifndef STATE_H
 #define STATE_H
 
+class Player; // forward declaration
 /* State types are:
     EstMono -- The card has established that they are a monopoly, and request
             all it's partners to toggle accordingly. This would be done using
@@ -44,6 +45,7 @@ enum class Faculty
 // note that there is no need for Card * here as we just care about the faculty
 struct State
 {
+        Player *owner;       //
         StateType type;      // For Monopoly
         Direction direction; // Relative Position of the piece
         Faculty faculty;     // Faculty of the piece

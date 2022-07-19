@@ -12,12 +12,10 @@ class Rez : public Property
 {
     Player *owner; // pointer to the owner of the property
     std::vector<Property *> otherRez;
-    std::string name; 
+    std::string name;
 
-
-    public: 
-    Rez(Player *owner, )
-
-}; 
+public:
+    Rez(Player *owner)
+};
 
 #endif // REZ_H
