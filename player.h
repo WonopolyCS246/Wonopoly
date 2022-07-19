@@ -1,35 +1,47 @@
-#include "card.h"
+#ifndef PLAYER
+#define PLAYER
 #include <vector>
 #include <string>
 class Property;
 
-
-class Player {
+class Player
+{
     std::string name;
-    std::vector<Property*> owned;
+    std::vector<Property *> owned;
     int assets;
     bool bankruptcy;
     // TutionPaid was not present in the UML
     bool tutionPaid;
     int position;
-    int RUTR;
+    int previousPosition; // this has been added keeping in mind that previousPosition must be know for graphic purposes
+    int RUTR;             // number of rim up the tims card used.
     bool atTims;
-    public:
-        Player(std::string name, int assets, int position);
-        std::vector<Property*> getProp();
-        void addProp(Property* p);
-        int addAssets();
-        // Get Assets was not present in UML
-        int getAssets();
-        void setAssets(int assests);
-        void setBankruptcy(bool B);
-        int getRUTR();
-        void setRUTR();
-        bool getAtTims();
-        void setAtTims();
-        void transfer(Player* p)
+
+public:
+    Player(std::string name, int assets, int position);
+    std::vector<Property *> getProp();
+    void addProp(Property *p);
+    void addAssets(int amount); // note intially int amount was not given but to my best understanding it should accept a parameter of type int.
+    // Get Assets was not present in UML
+    int getAssets();
+    void setAssets(int assests);
+    void setBankruptcy(bool B);
+    int getRUTR();
+    void setRUTR(int num);
+    bool getAtTims();
+    void setAtTims(bool value);
+    void transfer(Player *p);
+    void setPosition(int position);
+    int getPosition();
+    int getPreviousPosition();
+    void setPreviousPosition(int position);
+    std::string getName();
+    bool getBankruptcy();
+    bool getTutionPaid();
+    void setTutionPaid(bool tutionPaid);
 };
 
+#endif // PLAYER
 
 /*
 class Player {
