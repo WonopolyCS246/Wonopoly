@@ -14,14 +14,14 @@ class Player
     bool tutionPaid;
     int position;
     int previousPosition; // this has been added keeping in mind that previousPosition must be know for graphic purposes
-    int RUTR;             // number of rim up the tims card used.
+    int RUTR;             // number of roll up the rim cards used.
     bool atTims;
 
 public:
     Player(std::string name, int assets, int position);
     std::vector<Property *> getProp();
     void addProp(Property *p);
-    void addAssets(int amount); // note intially int amount was not given but to my best understanding it should accept a parameter of type int.
+    void addAssets(int amount); // note initially int amount was not given but to my best understanding it should accept a parameter of type int.
     // Get Assets was not present in UML
     int getAssets();
     void setAssets(int assests);
