@@ -16,6 +16,7 @@ class Player
     int previousPosition; // this has been added keeping in mind that previousPosition must be know for graphic purposes
     int RUTR;             // number of rim up the tims card used.
     bool atTims;
+    int turnsAtTims; // number of turns at DC tims when atTims is true.
 
 public:
     Player(std::string name, int assets, int position);
@@ -39,6 +40,9 @@ public:
     bool getBankruptcy();
     bool getTutionPaid();
     void setTutionPaid(bool tutionPaid);
+    void setTurnsAtTims(int turns);
+    int getTurnsAtTims();
+    
 };
 
 #endif // PLAYER
