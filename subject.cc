@@ -33,3 +33,8 @@ State Subject::getState() const
 {
     return state;
 }
+
+int Subject::getLen() const
+{
+    return observers.size();
+}

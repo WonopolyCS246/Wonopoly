@@ -31,6 +31,7 @@ protected:
 
 public:
     virtual Info getInfo() = 0;
+    int getLen() const; // returns the number of observers.  Used for testing.
     void attach(Observer *o);
     void notifyObservers();
     State getState() const;
