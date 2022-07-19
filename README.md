@@ -1,8 +1,8 @@
 # Wotopoly - The UWaterloo Monopoly
 ---
 Task List
-- [x] player.h
-- [ ] player.cc (BoilerPlate Ready)
+- [x] player.h (Bector, (mod. Priyanshu) )
+- [x] player.cc (BoilerPlate Ready + mod. Priyanshu)
 - [x] grid.h
 - [ ] grid.cc (BoilerPlate Ready)
 - [x] roll2die.h
