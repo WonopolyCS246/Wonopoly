@@ -17,9 +17,6 @@ float templateDesign :: random(){
 }
 
 
-float templateDesign :: random(){
-    return zeroToOne();
-}
 
 void Slc :: applyRule(Player *p ){
     std::string Val = Rule(this->random());
