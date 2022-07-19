@@ -23,9 +23,52 @@ float templateDesign :: random(){
 
 void Slc :: applyRule(Player *p ){
     std::string Val = Rule(this->random());
+    if (Val == "Back3"){
+        p->setPosition(p->getPosition() - 3);
+    } else if (Val == "Back2") {
+        p->setPosition(p->getPosition() - 2);
+    } else if (Val == "Back1") {
+        p->setPosition(p->getPosition() - 1);
+    } else if (Val == "Forward1"){
+        p->setPosition(p->getPosition() + 1);
+    } else if (Val == "Forward2"){
+        p->setPosition(p->getPosition() + 2);
+    } else if (Val ==  "Forward3"){
+        p->setPosition(p->getPosition() + 3);
+    } else if (Val ==  "GoToDC"){
+        // TO-DO: Sent to TIMS on the grid
+        p->setAtTims(true);
+        p->setPosition();
+    } else if (Val == "OASP"){
+        // TO-DO: Sent to OSAP on the grid
+        p->setPosition();
+    } else {
+        std::cout << "Problem with apply rule SLC" << std::endl;
+        // Just in Case
+    }
 }
 
-
+void Nhall :: applyRule(Player *p ){
+    std::string Val = Rule(this->random());
+    if (Val == "neg200"){
+        p->addAssets(-200);
+    } else if (Val == "neg100") {
+        p->addAssets(-100);
+    } else if (Val == "neg50") {
+        p->addAssets(-50);
+    } else if (Val == "pos25"){
+        p->addAssets(25);
+    } else if (Val == "pos50"){
+        p->addAssets(50);
+    } else if (Val ==  "pos100"){
+        p->addAssets(100);
+    } else if (Val ==  "pos200"){
+        p->addAssets(200);
+    } else {
+        // Just in Case
+        std::cout << "Problem with apply rule Needles Hall" << std::endl;
+    }
+}
 
 std::string Slc :: Rule(float compare) {
     float Back3 = 1/8;
