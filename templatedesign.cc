@@ -17,7 +17,6 @@ float templateDesign :: random(){
 }
 
 
-
 void Slc :: applyRule(Player *p ){
     std::string Val = Rule(this->random());
     p->setPreviousPosition(p->getPosition());
@@ -38,7 +37,7 @@ void Slc :: applyRule(Player *p ){
         p->setAtTims(true);
         p->setPosition(10);
     } else if (Val == "OASP"){
-        // TO-DO: Sent to OSAP on the grid
+        // TO-DO: Sent to TIMS on the grid
         p->setPosition(0);
     } else {
         std::cout << "Problem with apply rule SLC" << std::endl;
@@ -130,6 +129,5 @@ std::string Nhall :: Rule(float compare) {
     }
     return "pos200";
 }
-
 
 
