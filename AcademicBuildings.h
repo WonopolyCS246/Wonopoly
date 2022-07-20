@@ -8,6 +8,3 @@ std::vector<std::string> monopolyBlock { "Arts1", "Arts1", "Arts2", "Arts2", "Ar
 std::vector<int> purchaseCost {40, 60, 100, 100, 120, 140, 140, 160, 180, 180, 200, 220, 220, 240, 260, 260, 280, 300, 300, 320, 350, 400};
 std::vector<int> improvementCost {50, 50, 50, 50, 50, 100, 100, 100, 100, 100, 100, 150, 150, 150, 150, 150, 150, 200, 200, 200, 200, 200};
 
-int main(){
-	return 0;
-}

@@ -1,19 +1,24 @@
 # Wotopoly - The UWaterloo Monopoly
 ---
 Task List
-- [x] player.h
-- [ ] player.cc (BoilerPlate Ready)
+- [x] player.h (Bector, (mod. Priyanshu) )
+- [x] player.cc (BoilerPlate Ready + mod. Priyanshu)
 - [x] grid.h
 - [ ] grid.cc (BoilerPlate Ready)
 - [x] roll2die.h
 - [x] roll2die.cc
-- [x] state.h
-- [x] property.h
-- [x] property.cc
+- [x] state.h (Bector (mod. Priyanshu))
+- [x] property.h (Priyanshu+Bector)
+- [x] property.cc (Bector (mod. Priyanshu))
+- [x] Subject.h (Priyanshu)
+- [x] observer.h (Priyanshu)
+- [x] info.h (Priyanshu)
+- [ ] rez.h (taken by:- Priyanshu)
 - [x] academicInfo
 - [ ] Improvements
-
-
+- [ ] SNH All work (Building --> Bector)
+- [x] Makefile
+- [ ] 4Special Cards
 ---
 ## Plan Of Attack
 Made By:
