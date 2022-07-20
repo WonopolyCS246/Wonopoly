@@ -1,10 +1,10 @@
-#include "zeroToOne.h"
+#include "randomUint.h"
 
 
 
 
-float zeroToOne(){
-    std::vector<float> list;
+unsigned seed(){
+    std::vector<unsigned> list;
     for (int i = 0; i< 101; i++){
         list.emplace_back(i);
     }
@@ -13,13 +13,11 @@ float zeroToOne(){
         index.emplace_back(i);
     }
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-    std::default_random_engine rng{seed};
+    std::default_random_engine rng{(unsigned) seed};
 
 
     std::shuffle( list.begin(), list.end(), rng );
     std::shuffle( index.begin(), index.end(), rng );
-    return list[index[0]]/100;
+    return list[index[0]];
 
 }
-
-
