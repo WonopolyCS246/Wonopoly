@@ -24,8 +24,9 @@ public:
     bool isNewOwnable() override;
     void applyRule(Player *p) override;
     Player *getOwner() override;
-    Info getInfo() override;
-    void notify(Subject &whoFrom) override;
+    // Info getInfo() override;
+    // void notify(Subject &whoFrom) override;
+    // ^ Two methods repeated
 };
 
 #endif

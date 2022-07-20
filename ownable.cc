@@ -83,6 +83,10 @@ void Ownable::applyRule(Player *p)
     }
 }
 
+Player* Ownable::getOwner(){
+    // implementation goes here
+}
+
 // struct Info
 // {
 //     Player *owner;    // stores the player who owns the property

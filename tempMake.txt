@@ -1,6 +1,6 @@
 CXX = g++
 CXXFLAGS = -std=c++14 -g -Wall -MMD 
-OBJECTS = start.o DcTims.o gooseNestings.o goToDcTims.o main.o player.o property.o grid.o templatedesign.o randomUint.o ownable.o subject.o
+OBJECTS = start.o DcTims.o gooseNestings.o goToDcTims.o main.o player.o property.o grid.o templatedesign.o nHallRandom.o slcRandom.o randomUint.o
 DEPENDS = ${OBJECTS:.o=.d}
 EXEC = test
 
