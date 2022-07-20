@@ -17,6 +17,7 @@ Task List
 - [x] academicInfo
 - [ ] Improvements
 - [ ] SNH All work (Building --> Bector)
+- [ ] Makefile
 
 ---
 ## Plan Of Attack
