@@ -1,8 +1,10 @@
 #include <iostream>
 #include "property.h"
 #include "player.h"
-#include "zeroToOne.h"
+#include "randomUint.h"
+#include "nHallRandom.h"
 #include <string>
+#include "slcRandom.h"
 
 class templateDesign: public Property {
     public:

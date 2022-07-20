@@ -1,10 +1,10 @@
-#include "zeroToOne.h"
+#include "randomUint.h"
 
 
 
 
-float zeroToOne(){
-    std::vector<float> list;
+unsigned seed(){
+    std::vector<unsigned> list;
     for (int i = 0; i< 101; i++){
         list.emplace_back(i);
     }
@@ -18,8 +18,6 @@ float zeroToOne(){
 
     std::shuffle( list.begin(), list.end(), rng );
     std::shuffle( index.begin(), index.end(), rng );
-    return list[index[0]]/100;
+    return list[index[0]];
 
 }
-
-
