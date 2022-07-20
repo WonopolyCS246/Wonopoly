@@ -1,6 +1,6 @@
 #include "nHallRandom.h"
 
-NH_Cases NHall_Card_Generator(float seed){
+NH_Cases NHall_Card_Generator(unsigned seed){
     if (NH_DECK.size() == 0){
         for(int i = 0; i < 2;++i){
             NH_DECK.emplace_back(NH_Cases::N100);

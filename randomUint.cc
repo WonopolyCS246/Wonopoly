@@ -13,7 +13,7 @@ unsigned seed(){
         index.emplace_back(i);
     }
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-    std::default_random_engine rng{seed};
+    std::default_random_engine rng{(unsigned) seed};
 
 
     std::shuffle( list.begin(), list.end(), rng );

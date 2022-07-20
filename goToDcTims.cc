@@ -1,5 +1,5 @@
 #include "goToDcTims.h"
-//#include "player.h"
+#include "player.h"
 
 void goToDcTims :: addOwner(Player *p){
     // This Should be empty

@@ -8,24 +8,24 @@
 
 class templateDesign: public Property {
     public:
-        float random();
+        unsigned random();
         void addOwner(Player *p) override;
         bool isNewOwnable() override;
-        virtual void applyRule(Player *p);
+        virtual void applyRule(Player *p) = 0;
         Player *getOwner() override;
-        virtual std::string Rule(float compare) = 0;
+        //virtual std::string Rule(float compare) = 0;
 };
 
 class Slc : public templateDesign {
     public:
         void applyRule(Player *p) override;
-        std::string Rule(float compare);
+        //std::string Rule(float compare);
 };
 
 class Nhall : public templateDesign {
     public:
         void applyRule(Player *p) override;
-        std::string Rule(float compare);
+        //std::string Rule(float compare);
 };
 
 

@@ -45,27 +45,18 @@ bool Player::getAtTims()
     return atTims;
 }
 
-void Player::setAtTims(bool value)
-{
-    atTims = value;
-}
-
 void Player::transfer(Player *p)
 {
     bankruptcy = true;
 
-    for (int i = 0; i < owned.size(); i++)
+    for (int i = 0; i < ((int)owned.size()); i++)
     {
         p->addProp(owned[i]);
         // owned[i]->setOwner(p);
     }
 
     owned.clear();
-}
 
-bool Player::getAtTims()
-{
-    return atTims;
 }
 
 void Player::setAtTims(bool value)
@@ -83,7 +74,7 @@ int Player::getPosition()
     return position;
 }
 
-int Player::getPosition()
+int Player::getPreviousPosition()
 {
     return previousPosition;
 }

@@ -1,6 +1,6 @@
 #include "slcRandom.h"
 
-SLC_Cases SLC_Card_Generator(float seed){
+SLC_Cases SLC_Card_Generator(unsigned seed){
     if (SLC_DECK.size() == 0){
         for(int i = 0; i <  3;++i){
             SLC_DECK.emplace_back(SLC_Cases::F1);

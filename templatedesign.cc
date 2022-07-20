@@ -12,7 +12,7 @@ bool templateDesign ::isNewOwnable(){
     return false;
  }
 
-float templateDesign :: random(){
+unsigned templateDesign :: random(){
     return seed();
 }
 

@@ -1,5 +1,5 @@
 #include "start.h"
-
+#include "player.h"
 
 void Start ::addOwner(Player *p){
     // This Should be empty
