@@ -123,6 +123,8 @@ int Player::getTurnsAtTims()
     return turnsAtTims;
 }
 
+
+
 // Player(std::string name, int assets, int position);
 //     std::vector<Property *> getProp();
 //     void addProp(Property *p);

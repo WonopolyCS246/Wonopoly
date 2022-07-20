@@ -12,7 +12,6 @@ struct Info
     bool mortgaged;   // stores whether the property is mortgaged or not
     bool monopoly;    // stores whether the property is part of a monopoly or not
     int cost;         // stores the cost of the property
-    int rent;         // stores the rent of the property
     std::string name; // stores the name of the property
     int increments;   // stores the number of increments the property has been owned for
     int position;
