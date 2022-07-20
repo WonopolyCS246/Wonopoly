@@ -63,24 +63,9 @@ void Player::transfer(Player *p)
     owned.clear();
 }
 
-bool Player::getAtTims()
-{
-    return atTims;
-}
-
-void Player::setAtTims(bool value)
-{
-    atTims = value;
-};
-
 void Player::setPosition(int position)
 {
     this->position = position;
-}
-
-int Player::getPosition()
-{
-    return position;
 }
 
 int Player::getPosition()
@@ -122,8 +107,6 @@ int Player::getTurnsAtTims()
 {
     return turnsAtTims;
 }
-
-
 
 // Player(std::string name, int assets, int position);
 //     std::vector<Property *> getProp();
