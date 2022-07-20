@@ -13,12 +13,14 @@
 class Grid
 {
   int numPlayers; // field added
-  std::vector<Property *> card;
+  std::vector<Property *> cards;
   std::vector<Player *> players;
   std::vector<char> disp; // stores each player's character with which it is represented on the board
   std::unordered_map<std::string, int> piece;
+  std::unordered_map<std::string, Player*> names;
 
   void print();
+  Player *info(std::ifstream &file, int *impr);
 
 public:
   Grid(std::ifstream infile);
