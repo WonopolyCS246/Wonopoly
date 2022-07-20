@@ -78,7 +78,8 @@
     "fstream": "cpp",
     "iomanip": "cpp",
     "stack": "cpp",
-    "map": "cpp"
-
+    "map": "cpp",
+    "__bits": "cpp",
+    "variant": "cpp"
   }
 }
