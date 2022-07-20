@@ -18,7 +18,7 @@ Task List
 - [ ] Improvements
 - [ ] SNH All work (Building --> Bector)
 - [ ] Makefile
-
+- [ ] 4Special Cards
 ---
 ## Plan Of Attack
 Made By:
