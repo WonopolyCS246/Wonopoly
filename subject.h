@@ -20,7 +20,7 @@
 // DO NOT MODIFY THIS FILE!
 
 class Observer;
-class Info; // forward declaration
+struct Info; // forward declaration
 class Subject
 {
     std::vector<Observer *> observers;
