@@ -24,16 +24,20 @@ class Observer;
 struct Info; // forward declaration
 class Subject
 {
-    std::vector<Observer *> observers;
+
     State state;
 
 protected:
     void setState(State newS);
+    std::vector<Observer *> observers;
 
 public:
     virtual Info getInfo() = 0;
     int getLen() const; // returns the number of observers.  Used for testing.
-    void attach(Observer *o);
+
+                        // we can't call subject::observers.info directly, so we do this.
+    virtual void attach(Observer *o) = 0;
+
     void notifyObservers();
     State getState() const;
 };
