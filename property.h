@@ -5,7 +5,6 @@ class Player; // forward declaration
 
 class Property
 {
-  Player *owner; // pointer to the owner of the property
 
 public:
   Property(); // default constructor

@@ -17,6 +17,7 @@ class Player
     int RUTR;             // number of roll up the rim cards used.
     bool atTims;
     int turnsAtTims; // number of turns at DC tims when atTims is true.
+    int prevRoll;    // indicates the last roll of the dice.
 
 public:
     Player(std::string name, int assets, int position);
@@ -42,7 +43,10 @@ public:
     void setTutionPaid(bool tutionPaid);
     void setTurnsAtTims(int turns);
     int getTurnsAtTims();
-    
+
+    // forgot to store previous roll sum, so storing that rn.
+    int getPrevRoll();
+    void setPrevRoll(int roll);
 };
 
 #endif // PLAYER

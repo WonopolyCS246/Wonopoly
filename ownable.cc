@@ -53,6 +53,11 @@ void Ownable::addOwner(Player *p)
     // Note that I am yet to deduct the annual fee from the player's balance.
     // Also I am yet to add the property to the player's property vector.
 
+    if (p->getAssets() < info.cost)
+    {
+        throw IllegalMove();
+    }
+
     p->setAssets(p->getAssets() - info.cost);
     p->addProp(this);
     info.owner = p;
@@ -150,13 +155,18 @@ void Ownable::attach(Observer *o)
 
 void Ownable::addincrement(Player *p)
 {
+    // yet to deduct money from the player's balance.
     if (info.owner != p)
     {
         throw NotOwner();
     }
     else
     {
-        if (info.mortgaged)
+        if (info.mortgaged || !info.monopoly)
+        {
+            throw IllegalMove();
+        }
+        else if (info.increments == 5)
         {
             throw IllegalMove();
         }
@@ -176,6 +186,7 @@ void Ownable::addincrement(Player *p)
 
             if (x == 0)
             {
+                p->setAssets(p->getAssets() - a.getIncrementcost(info.name));
                 ++info.increments;
                 return;
             }
@@ -192,6 +203,7 @@ void Ownable::addincrement(Player *p)
 
             if (x == 1)
             {
+                p->setAssets(p->getAssets() - a.getIncrementcost(info.name));
                 ++info.increments;
                 return;
             }
@@ -203,7 +215,68 @@ void Ownable::addincrement(Player *p)
     }
 }
 
+void Ownable::removeincrement(Player *p)
+{
+    // yet to add money to the player's balance.
+    if (info.owner != p)
+    {
+        throw NotOwner();
+    }
+    else
+    {
+        if (info.mortgaged || !info.monopoly)
+        {
+            throw IllegalMove();
+        }
 
+        else if (info.increments == 0)
+        {
+            throw IllegalMove();
+        }
+        else
+        {
+            // check if all the increments are same on neighbouring properties
+
+            int x = 0;
+            for (int i = 0; i < getLen(); i++)
+            {
+                if (((Ownable *)observers[i])->getInfo().increments != info.increments)
+                {
+                    x = 1;
+                    break;
+                }
+            }
+
+            if (x == 0)
+            {
+                p->setAssets(p->getAssets() + (a.getIncrementcost(info.name)) * (0.5));
+                --info.increments;
+                return;
+            }
+            x = 0;
+            // now check if there is an element such that it's increment is one more than the current increment
+            for (int i = 0; i < getLen(); ++i)
+            {
+                if (((Ownable *)observers[i])->getInfo().increments == info.increments - 1)
+                {
+                    x = 1;
+                    break;
+                }
+            }
+
+            if (x == 1)
+            {
+                p->setAssets(p->getAssets() + (a.getIncrementcost(info.name)) * (0.5));
+                --info.increments;
+                return;
+            }
+            else
+            {
+                throw IllegalMove();
+            }
+        }
+    }
+}
 
 // struct Info
 // {

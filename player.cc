@@ -108,6 +108,19 @@ int Player::getTurnsAtTims()
     return turnsAtTims;
 }
 
+// int getPrevRoll();
+//     void setPrevRoll(int roll);
+
+int Player::getPrevRoll()
+{
+    return prevRoll;
+}
+
+void Player::setPrevRoll(int roll)
+{
+    prevRoll = roll;
+}
+
 // Player(std::string name, int assets, int position);
 //     std::vector<Property *> getProp();
 //     void addProp(Property *p);
