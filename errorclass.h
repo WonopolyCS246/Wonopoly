@@ -6,4 +6,17 @@ class NoRent
 {
 };
 
-#endif // NORENT_H
+
+class NotOwner
+{
+};
+
+class NotMortgaged
+{
+};
+
+class IllegalMove
+{
+};
+
+#endif

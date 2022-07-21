@@ -16,10 +16,15 @@ void Subject::setState(State newS)
     state = newS; // set the state to the new state
 }
 
-void Subject::attach(Observer *o)
-{
-    observers.push_back(o); // add the observer to the vector
-}
+// void Subject::attach(Observer *o)
+// {
+//     observers.push_back(o); // add the observer to the vector
+    
+// }
+
+
+
+
 
 void Subject::notifyObservers()
 {
