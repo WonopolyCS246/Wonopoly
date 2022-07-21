@@ -68,47 +68,44 @@ Grid::Grid(std::ifstream infile) {
 
 Grid::~Grid() {
 
+void Grid::roll()
+{
 }
 
-void Grid::roll(){
-
+void Grid::nextTurn()
+{
 }
 
 void Grid::nextTurn(){
     
 }
 
-void Grid::trade(){
-
+Property *Grid::getProperty(string propertyName)
+{
 }
 
 Property* Grid::getProperty(std::string propertyName){
 
 }
 
-void Grid:: Grid::buyProperty(Property* p){
-
+void Grid::sellProperty(Property *p)
+{
 }
 
-void Grid::sellProperty(Property* p){
-
+void Grid::mortgage(Property *p)
+{
 }
 
-void Grid::mortgage(Property* p){
-
+void Grid::unmortgage(Property *p)
+{
 }
 
-void Grid::unmortgage(Property* p){
-
+bool Grid::bankrupt()
+{
 }
 
-
-bool Grid::bankrupt(){
-
-}
-
-int Grid::assets(){
-
+int Grid::assets()
+{
 }
 
 int Grid::all() {
@@ -118,13 +115,13 @@ int Grid::all() {
 void Grid::auctionProperty(Property * p) {
 
 }
-// auctionPlayer() calls auctionProperty() on all properties owned by player 
-void Grid::auctionPlayer(Player * p){
-
+// auctionPlayer() calls auctionProperty() on all properties owned by player
+void Grid::auctionPlayer(Player *p)
+{
 }
 
-void Grid::transfer(Player * p1, Player * p2){
-
+void Grid::transfer(Player *p1, Player *p2)
+{
 }
 
 void print() {

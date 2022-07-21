@@ -4,6 +4,12 @@
 // an error class to indicate that rent cannot be paid
 class NoRent
 {
+    int rent; // the rent that cannot be paid
+public:
+    NoRent(int rent)
+    {
+        this->rent = rent;
+    }
 };
 
 
