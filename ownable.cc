@@ -88,7 +88,7 @@ void Ownable::applyRule(Player *p)
         }
         else
         {
-            throw NoRent();
+            throw NoRent{a.getrent(info.name, info.increments)};
         }
     }
 }
@@ -202,8 +202,6 @@ void Ownable::addincrement(Player *p)
         }
     }
 }
-
-
 
 // struct Info
 // {

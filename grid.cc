@@ -1,71 +1,76 @@
-#include grid.h
+#include "grid.h"
+
+using namepsace std;
 
 <Property *> Grid::card{
 
 }
 
-<Players *> Grid::players{
+<Players *>
+    Grid::players{
 
-}
-<string, int> Grid::piece{
-
-}
-
-void Grid::roll(){
-
+    }<string, int>
+        Grid::piece
+{
 }
 
-void Grid::nextTurn(){
-
+void Grid::roll()
+{
 }
 
-void Grid::trade(){
-
+void Grid::nextTurn()
+{
 }
 
-Property* Grid::getProperty(string propertyName){
-
+void Grid::trade()
+{
 }
 
-void Grid:: Grid::buyProperty(Property* p){
-
+Property *Grid::getProperty(string propertyName)
+{
 }
 
-void Grid::sellProperty(Property* p){
-
+void Grid::Grid::buyProperty(Property *p)
+{
 }
 
-void Grid::mortgage(Property* p){
-
+void Grid::sellProperty(Property *p)
+{
 }
 
-void Grid::unmortgage(Property* p){
-
+void Grid::mortgage(Property *p)
+{
 }
 
-
-bool Grid::bankrupt(){
-
+void Grid::unmortgage(Property *p)
+{
 }
 
-int Grid::assets(){
-
+bool Grid::bankrupt()
+{
 }
 
-int Grid::all{
+int Grid::assets()
+{
+}
 
+int Grid::all
+{
 }
 // Explicitly defining the type of auction
-void Grid::auctionProperty(Property * p){
-
+void Grid::auctionProperty(Property *p)
+{
 }
-// auctionPlayer() calls auctionProperty() on all properties owned by player 
-void Grid::auctionPlayer(Player * p){
-
-}
-
-void Grid::transfer(Player * p1, Player * p2){
-
+// auctionPlayer() calls auctionProperty() on all properties owned by player
+void Grid::auctionPlayer(Player *p)
+{
 }
 
-    
+void Grid::transfer(Player *p1, Player *p2)
+{
+}
+
+void handlenewownable(Property *p, Player *p)
+{
+    std::cout
+}

@@ -72,14 +72,14 @@ void Rez::applyRule(Player *p)
         {
             rent = 100;
         }
-        else if (count + 1 == 4)
+        else
         {
             rent = 200;
         }
 
         if (rent > p->getAssets())
         {
-            throw NoRent();
+            throw NoRent(rent);
         }
         else
         {
