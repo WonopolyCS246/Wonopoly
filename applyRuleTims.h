@@ -5,10 +5,56 @@ enum Chances {rollDouble, pay50, rollUp};
 
 
 void takingInput(Player *p){
-    int i = 1;
-    if (p->getRUTR()){
-
+    int k = 3;
+    if (p->getRUTR())
+    {
+        k = 2;
     }
+    while (true)
+    {
+        for (int i = 0; i < k; ++i)
+        {
+            if (i == 0)
+            {
+                std::cout << "1. Roll a double die" << std::endl;
+            }
+            else if (i == 1)
+            {
+                std::cout << "2. Pay 50 dollars" << std::endl;
+            }
+            else if (i == 2)
+            {
+                std::cout << "3. Roll Up" << std::endl;
+            }
+            else 
+            {
+                continue;
+            }
+        }
+        int input;
+        std::cin >> input;
+        if (input == 0)
+        {
+            applyRuleTims(p, Chances::rollDouble);
+            break;
+        }
+        else if (input == 1)
+        {
+            applyRuleTims(p, Chances::pay50);
+            break;
+        }
+        else if (input == k-1)
+        {
+            applyRuleTims(p, Chances::rollUp);
+            break;
+        }
+        else 
+        {
+            std::cout << "Invalid Input" << std::endl;
+            continue;
+        }
+    }
+    
 }
 
 void applyRuleTims(Player *p, Chances Case){
@@ -27,9 +73,50 @@ void applyRuleTims(Player *p, Chances Case){
             p->setPreviousPosition(p->getPosition());
             p->setAtTims(false);
             // Function to Roll a die again for the player
-        } else {
+        } 
+        else 
+        {
             std::cout << "Better Luck Next Time : P" << std::endl;
             p->setTurnsAtTims(p->getTurnsAtTims() + 1);
+        }
+        if (p->getTurnsAtTims() == 3)
+        {
+            int k = 2;
+            if (p->getRUTR())
+            {
+                k = 1;
+            }
+            while (true)
+            {
+                for (int i = 0; i < k; ++i)
+                {
+                    if (i == 0)
+                    {
+                        std::cout << "1. Pay 50 dollars" << std::endl;
+                    }
+                    else if (i == 1)
+                    {
+                        std::cout << "2. Roll Up " << std::endl;
+                    }
+                }
+                int input;
+                std::cin >> input;
+                if (input == 0)
+                {
+                    applyRuleTims(p, Chances::pay50);
+                    break;
+                }
+                else if (input == k-1)
+                {
+                    applyRuleTims(p, Chances::rollUp);
+                    break;
+                }
+                else 
+                {
+                    std::cout << "Invalid Input" << std::endl;
+                    continue;
+                }
+            }
         }
         break;
     case pay50:
