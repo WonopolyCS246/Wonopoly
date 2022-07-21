@@ -10,16 +10,16 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Thu Jul 21 18:55:38 2022
+# Make data base, printed on Thu Jul 21 19:17:52 2022
 
 # Variables
 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
+ 
 ?F = $(notdir $?)
 # automatic
- 
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
@@ -229,6 +229,7 @@ all:
 gooseNestings.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
 #  File has not been updated.
 
 # Not a target:
@@ -250,7 +251,6 @@ goToDcTims.d:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
- 
 #  Last modified 2022-07-20 19:24:36
 #  File has been updated.
 #  Successfully updated.
@@ -422,6 +422,6 @@ player.o:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 3964 / max = 3964 / min = 3964 / avg = 3964
 
-# Finished Make data base on Thu Jul 21 18:55:38 2022
+# Finished Make data base on Thu Jul 21 19:17:52 2022
 
  
