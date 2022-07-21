@@ -1,0 +1,16 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/vbector/Wonopoly'
+g++ -std=c++14 -g -Wall -MMD    -c -o start.o start.cc
+g++ -std=c++14 -g -Wall -MMD    -c -o DcTims.o DcTims.cc
+g++ -std=c++14 -g -Wall -MMD    -c -o gooseNestings.o gooseNestings.cc
+g++ -std=c++14 -g -Wall -MMD    -c -o goToDcTims.o goToDcTims.cc
+g++ -std=c++14 -g -Wall -MMD    -c -o main.o main.cc
+g++ -std=c++14 -g -Wall -MMD    -c -o player.o player.cc
+g++ -std=c++14 -g -Wall -MMD    -c -o property.o property.cc
+g++ -std=c++14 -g -Wall -MMD    -c -o templatedesign.o templatedesign.cc
+g++ -std=c++14 -g -Wall -MMD    -c -o randomUint.o randomUint.cc
+g++ -std=c++14 -g -Wall -MMD    -c -o ownable.o ownable.cc
+g++ -std=c++14 -g -Wall -MMD    -c -o subject.o subject.cc
+g++ -std=c++14 -g -Wall -MMD  start.o DcTims.o gooseNestings.o goToDcTims.o main.o player.o property.o templatedesign.o randomUint.o ownable.o subject.o -o test
+make: Leaving directory `/Users/vbector/Wonopoly'
+ 
