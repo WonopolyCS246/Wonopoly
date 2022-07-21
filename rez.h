@@ -15,7 +15,7 @@ class Rez : public Property
     std::string name;
 
 public:
-    Rez(Player *owner)
+    Rez(Player *owner);
 };
 
 #endif // REZ_H
