@@ -3,6 +3,7 @@
 #include "property.h"
 #include "ownable.h"
 #include "player.h"
+#include "roll2die.h"
 using namespace std;
 
 // std::vector<Property *> cards;
@@ -358,11 +359,65 @@ void handletims(Player *p, vector<Property *> &Card)
             stringstream ss{s};
 
             ss >> s;
-            if (s=="pass"){
-                p->setTurnsAtTims(p->getTurnsAtTims()-1); 
+            if (s == "pass")
+            {
+                p->setTurnsAtTims(p->getTurnsAtTims() - 1);
                 break;
             }
-            else if(s=="")
+            else if (s == "roll")
+            {
+                vector<int> a = roll2die(); // roll the dice
+                int sum = a[0] + a[1];
+                if (a[0] != a[1])
+                {
+                    cout << "Sorry you didn't roll doubles" << endl;
+                    break;
+                }
+                p->setPrevRoll(sum);
+                handlepassthorugh(sum, p);
+                handlecard(Card[p->getPosition()], p); // hadles the logic of player landing on the card.
+            }
+
+            else if (s == "RURC")
+            {
+                if (p->getRUTR())
+                {
+                    p->setTurnsAtTims(0);
+                    p->setAtTims(false);
+                    p->setRUTR(p->getRUTR() - 1);
+                    // code to roll a dice and move the player and update previous position.
+                    // no need to update previous roll as nothing is being rolled.
+                    handlepassthorugh(p->getPrevRoll(), p);
+
+                    handlecard(Card[p->getPosition()], p); // hadles the logic of player landing on the card.
+
+                    break;
+                }
+                else
+                {
+                    cout << "You don't have roll up the rim card" << endl;
+                    continue;
+                }
+            }
+
+            else if (s == "pay" || s == "Pay")
+            {
+                if (p->getAssets() < 50)
+                {
+                    cout << "Not enough money" << endl;
+                    continue;
+                }
+                else
+                {
+                    p->setTurnsAtTims(0);
+                    p->setAtTims(false);
+                    p->setAssets(p->getAssets() - 50);
+
+                    handlepassthorugh(p->getPrevRoll(), p);
+
+                    handlecard(Card[p->getPosition()], p); // hadles the logic of player landing on the card.
+                }
+            }
         }
     }
 }
