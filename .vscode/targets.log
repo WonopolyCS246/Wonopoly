@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Thu Jul 21 15:38:20 2022
+# Make data base, printed on Thu Jul 21 18:55:38 2022
 
 # Variables
 
@@ -19,6 +19,7 @@ make: *** No rule to make target `all'.  Stop.
 # automatic
 ?F = $(notdir $?)
 # automatic
+ 
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
@@ -49,11 +50,11 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.MUntNzcYWk/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.pWwSoPBJNp/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
-DISPLAY = /private/tmp/com.apple.launchd.bBdT046n2q/org.xquartz:0
+DISPLAY = /private/tmp/com.apple.launchd.d6bbtJTsPx/org.xquartz:0
 # environment
 CONDA_EXE = /Users/vbector/opt/anaconda3/bin/conda
 # environment
@@ -161,7 +162,7 @@ OBJECTS = start.o DcTims.o gooseNestings.o goToDcTims.o main.o player.o property
 # environment
 CONDA_PREFIX = /Users/vbector/opt/anaconda3
 # environment
-VSCODE_PID = 10501
+VSCODE_PID = 1896
 # environment
 _CE_CONDA = 
 # environment
@@ -175,7 +176,7 @@ LANG = C
 
 # Directories
 
-# . (device 16777230, inode 23746654): 49 files, no impossibilities.
+# . (device 16777233, inode 23746654): 49 files, no impossibilities.
 
 # 49 files, no impossibilities in 1 directories.
 
@@ -249,6 +250,7 @@ goToDcTims.d:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
+ 
 #  Last modified 2022-07-20 19:24:36
 #  File has been updated.
 #  Successfully updated.
@@ -331,7 +333,6 @@ main.d:
 
 # Not a target:
 ownable.d:
- 
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
 #  File does not exist.
@@ -421,6 +422,6 @@ player.o:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 3964 / max = 3964 / min = 3964 / avg = 3964
 
-# Finished Make data base on Thu Jul 21 15:38:20 2022
+# Finished Make data base on Thu Jul 21 18:55:38 2022
 
  
