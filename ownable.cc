@@ -143,9 +143,16 @@ void Ownable::unMortgaged(Player *p)
     }
 }
 
+
+Player* Ownable::getOwner() {
+    return info.owner;
+
+}
+
 void Ownable::attach(Observer *o)
 {
     observers.push_back(o);
+
 }
 
 void Ownable::addincrement(Player *p)
@@ -160,7 +167,14 @@ void Ownable::addincrement(Player *p)
         {
             throw IllegalMove();
         }
-        else
+        else if (!info.monopoly) {
+            throw NotMonopoly();
+        }
+        else if (info.increments == 5)
+        {
+            throw MaxImprovements();
+        }
+        else 
         {
             // check if all the increments are same on neighbouring properties
 
@@ -193,6 +207,61 @@ void Ownable::addincrement(Player *p)
             if (x == 1)
             {
                 ++info.increments;
+                return;
+            }
+            else
+            {
+                throw IllegalMove();
+            }
+        }
+    }
+}
+
+void Ownable::removeincrement(Player *p) {
+    if (info.owner != p)
+    {
+        throw NotOwner();
+    }
+    else
+    {
+        if (info.mortgaged)
+        {
+            throw IllegalMove();
+        }
+        else if (!info.monopoly) {
+            throw NotMonopoly();
+        }
+        else if (info.increments == 0) {
+            throw MinImprovements();
+        }
+        else
+        {
+            int x = 0;
+            for (int i = 0; i < getLen(); i++)
+            {
+                if (((Ownable *)observers[i])->getInfo().increments != info.increments)
+                {
+                    x = 1;
+                    break;
+                }
+            }
+            if (x == 0)
+            {
+                --info.increments;
+                return;
+            }
+            x = 0;
+            for (int i = 0; i < getLen(); ++i)
+            {
+                if (((Ownable *)observers[i])->getInfo().increments == info.increments - 1)
+                {
+                    x = 1;
+                    break;
+                }
+            }
+            if (x == 1)
+            {
+                --info.increments;
                 return;
             }
             else
