@@ -19,4 +19,16 @@ class IllegalMove
 {
 };
 
+class NotMonopoly
+{
+};
+
+class MaxImprovements
+{
+};
+
+class MinImprovements
+{
+};
+
 #endif

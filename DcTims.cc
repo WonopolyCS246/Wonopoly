@@ -14,5 +14,5 @@ Player * DcTims :: getOwner() {
 }
 
 void DcTims :: applyRule(Player *p) {
-    takingInput(p);
+    std::cout << "Enjoy your coffee at Tim Hortons" << std::endl;
 }

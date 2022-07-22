@@ -185,14 +185,10 @@ void trade(Player *p, Property *q, int money) { // offers a trade to p, offering
 }
 
 void Grid::buyImprovement(Property* p){
-    // first check if the property is ownable 
-    // then check if the owner is the current player
-    // these steps below should be localized in ownable.cc not here
-    // now check if he has a monopoly, only then can he buy an improvement
-    // then check improvement conditions (evenly buying improvements, less then 5 improvements)
-    if (p->getOwner() != current) { // the current player does not own p so cannot buy an improvement
-        cout << "Sorry, you are not the owner of " << p->getInfo().name << " and so you cannot buy an improvement on it." << endl;
-        return;
+    try {
+        p->addIncrement(current);
+    } catch (const char* msg) {
+        cout << msg << endl;
     }
 
 }
