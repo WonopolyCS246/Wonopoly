@@ -9,4 +9,6 @@
 //   virtual void applyRule() = 0;
 //   virtual Player *getOwner() = 0;
 
-Property::Property() : owner(nullptr) {}
+// Property::Property() : owner(nullptr) {}
+Property::Property() {}
+
