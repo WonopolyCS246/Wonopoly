@@ -1,5 +1,5 @@
 #include "DcTims.h"
-#include "applyRuleTims.h"
+//#include "applyRuleTims.h"
 
 void DcTims :: addOwner(Player *p){
     // This Should be empty
@@ -14,5 +14,5 @@ Player * DcTims :: getOwner() {
 }
 
 void DcTims :: applyRule(Player *p) {
-    takingInput(p);
+    std::cout << "Enjoy your coffee at Tim Hortons" << std::endl;
 }

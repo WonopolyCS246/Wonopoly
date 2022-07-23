@@ -272,3 +272,9 @@ We wanted to finish a mojarity amount of work over the first weekend, just to ha
 
 
 
+### Using ncurses for textdisplay
+We could have used `std::cout` to output the whole grid in the terminal itself, however, we felt that it would be extremely cumbersome - considering that it was such a huge grid. 
+
+
+
+
