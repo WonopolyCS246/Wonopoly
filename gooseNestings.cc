@@ -1,8 +1,10 @@
 #include "gooseNestings.h"
 #include <iostream>
+#include "errorclass.h"
 
 void gooseNestings :: addOwner(Player *p){
     // This Should be empty
+    throw IllegalMove();
 }
 
 bool gooseNestings :: isNewOwnable(){
