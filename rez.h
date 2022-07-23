@@ -19,20 +19,23 @@ class Rez : public Property
 {
     Player *owner; // pointer to the owner of the property
     bool mortgaged;
-    bool cost;
+    int cost;
     std::vector<Property *> otherRez; // this needs to be set later indivsually.
     std::string name;
     int position;
 
 public:
     Rez(Player *owner, std::string name, int position, bool mortaged);
-    void addOwner(Player *p);
+    std::string getName() override;
+    void addOwner(Player *p) override;
     bool isNewOwnable() override;
     void applyRule(Player *p) override;
-    Player *getOwner() override;  // this is to get the owner of the property
-    void setMortgaged(Player *p); // this is to set the mortgaged status of the property
-    void unMortgaged(Player *p);  // // this is to unmortage the property
+    Player *getOwner() override;           // this is to get the owner of the property
+    void setMortgaged(Player *p) override; // this is to set the mortgaged status of the property
+    void unMortgaged(Player *p) override;  // // this is to unmortage the property
     void setOtherRez(std::vector<Property *> otherRez);
+    int getPrice() override;
+    bool isMortgaged() override;
 };
 
 #endif // REZ_H

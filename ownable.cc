@@ -18,11 +18,15 @@ using namespace std;
 //     void notify(Subject &whoFrom) override;
 // void setMortgaged(bool value)
 
-Ownable::Ownable(Player *owner, std::string name, int position, Faculty faculty, int increments, bool mortaged) : state{State{nullptr, StateType::EstMono, Direction::Left, Faculty::Arts1, false}},
+Ownable::Ownable(Player *owner, std::string name, int position, Faculty faculty, int increments, bool mortaged) : Subject(State{nullptr, StateType::EstMono, Direction::Left, Faculty::Arts1, false}),
                                                                                                                   info{Info{owner, mortaged, false, a.getprice(name), name, increments, position, faculty}}
 {
 }
 
+void Ownable::attach(Property *o)
+{
+    Subject::attach(o);
+}
 void Ownable::notify(Subject &whoFrom)
 {
     auto inf = whoFrom.getInfo();
@@ -30,22 +34,14 @@ void Ownable::notify(Subject &whoFrom)
 
     int x = getLen();
 
-    if (stat.owner)
+    if (stat.type == StateType::EstMono)
     {
-        if (stat.owner->getProp().size() == x)
-        {
-            info.monopoly = true; // if the player owns all the properties of the faculty, he is in a monopoly
-        }
-        else
-        {
-            info.monopoly = false; // if the player does not own all the properties of the faculty, he is not in a monopoly
-        }
+        info.monopoly = true;
     }
-}
-
-void Ownable::setState(State newS)
-{
-    state = newS;
+    else if (stat.type == StateType::DisMono)
+    {
+        info.monopoly = false;
+    }
 }
 
 void Ownable::addOwner(Player *p)
@@ -58,10 +54,31 @@ void Ownable::addOwner(Player *p)
         throw IllegalMove();
     }
 
-    p->setAssets(p->getAssets() - info.cost);
-    p->addProp(this);
+    vector<Property *> other = p->getProp();
+    int count = 0;
+
+    for (int i = 0; i < other.size(); ++i)
+    {
+        if (other[i]->getOwner() == info.owner)
+        {
+            count++;
+        }
+    }
+
+    if (count == getLen())
+    {
+        info.monopoly = true;
+        State s = State{p, StateType::EstMono, Direction::Left, info.faculty, false};
+        setState(s);
+    }
+    else
+    {
+        info.monopoly = false;
+        State s = State{p, StateType::DisMono, Direction::Left, info.faculty, false};
+        setState(s);
+    }
+
     info.owner = p;
-    state = State{p, StateType::EstMono, Direction::Left, info.faculty, false};
     notifyObservers(); // but state needs to change
 }
 
@@ -79,6 +96,13 @@ bool Ownable::isNewOwnable()
 
 void Ownable::applyRule(Player *p)
 {
+    if (info.owner == p && info.mortgaged)
+    {
+        // handling this case is up to grid.
+        // it must conduct auction if neccessary or unmortgage the property.
+        throw NotMortgage(info.cost * (0.6));
+    }
+
     if (info.owner == p || info.mortgaged)
     {
         return;
@@ -93,7 +117,7 @@ void Ownable::applyRule(Player *p)
         }
         else
         {
-            throw NoRent();
+            throw NoRent(a.getrent(info.name, info.increments));
         }
     }
 }
@@ -122,7 +146,6 @@ void Ownable::setMortgaged(Player *p)
         }
         else
         {
-            p->setAssets(p->getAssets() + (info.cost / 2));
             info.mortgaged = true;
         }
     }
@@ -142,15 +165,10 @@ void Ownable::unMortgaged(Player *p)
         }
         else
         {
-            p->setAssets(p->getAssets() - (info.cost * 0.6));
+
             info.mortgaged = false;
         }
     }
-}
-
-void Ownable::attach(Observer *o)
-{
-    observers.push_back(o);
 }
 
 void Ownable::addincrement(Player *p)
@@ -278,6 +296,25 @@ void Ownable::removeincrement(Player *p)
     }
 }
 
+string Ownable::getName()
+{
+    return info.name;
+}
+
+int Ownable::getPrice()
+{
+    return info.cost;
+}
+
+bool Ownable::isMortgaged()
+{
+    return info.mortgaged;
+}
+
+void Ownable::setMortgaged(bool b)
+{
+    info.mortgaged = b;
+}
 // struct Info
 // {
 //     Player *owner;    // stores the player who owns the property
@@ -293,6 +330,7 @@ void Ownable::removeincrement(Player *p)
 
 // struct State
 // {
+//         Player *owner;       //
 //         StateType type;      // For Monopoly
 //         Direction direction; // Relative Position of the piece
 //         Faculty faculty;     // Faculty of the piece

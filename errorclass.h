@@ -10,14 +10,46 @@ public:
     {
         this->rent = rent;
     }
+
+    int getRent()
+    {
+        return rent;
+    }
 };
 
+class NotMortgage
+{
+    int amount;
+
+public:
+    NotMortgage(int amount)
+    {
+        this->amount = amount;
+    }
+
+    int getAmount()
+    {
+        return amount;
+    }
+};
+
+class NoTution
+{
+    int amount;
+
+public:
+    NoTution(int amount)
+    {
+        this->amount = amount;
+    }
+
+    int getAmount()
+    {
+        return amount;
+    }
+};
 
 class NotOwner
-{
-};
-
-class NotMortgaged
 {
 };
 

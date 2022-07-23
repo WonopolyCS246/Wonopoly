@@ -22,6 +22,7 @@ class Player
 public:
     Player(std::string name, int assets, int position);
     std::vector<Property *> getProp();
+    void removeProp(Property *p);
     void addProp(Property *p);
     void addAssets(int amount); // note initially int amount was not given but to my best understanding it should accept a parameter of type int.
     // Get Assets was not present in UML
