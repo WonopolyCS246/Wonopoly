@@ -12,3 +12,6 @@ clean :
 	rm ${DEPENDS} ${OBJECTS} ${EXEC}
 
 -include ${DEPENDS}
+
+start.o DcTims.o gooseNestings.o goToDcTims.o main.o player.o property.o templatedesign.o randomUint.o ownable.o subject.o
+

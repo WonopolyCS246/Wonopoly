@@ -80,6 +80,7 @@
     "stack": "cpp",
     "map": "cpp",
     "__bits": "cpp",
-    "variant": "cpp"
+    "variant": "cpp",
+    "__tree": "cpp"
   }
 }

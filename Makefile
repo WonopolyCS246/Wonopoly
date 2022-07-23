@@ -1,11 +1,11 @@
 CXX = g++
-CXXFLAGS = -std=c++14 -g -Wall -MMD -lncurses
-OBJECTS = start.o DcTims.o gooseNestings.o goToDcTims.o main.o player.o property.o templatedesign.o randomUint.o ownable.o subject.o
+CXXFLAGS = -std=c++14 -g -Wall -MMD 
+OBJECTS = displaytester.o display.o player.o
 DEPENDS = ${OBJECTS:.o=.d}
-EXEC = test
+EXEC = display
 
 ${EXEC} : ${OBJECTS}
-	${CXX} ${CXXFLAGS} ${OBJECTS} -o ${EXEC}
+	${CXX} ${CXXFLAGS} ${OBJECTS} -lncurses -o ${EXEC}
 
 
 clean :

@@ -17,7 +17,7 @@ struct Unit{
 };
 
 struct PrintHeader{
-    char Icon[] = "";
+    const char* Icon;
     Pixel Place;
 };
 
@@ -35,7 +35,7 @@ class display {
 
         // std::vector<Unit> Pivot_Pixel{{"AL",{55,77}}, {"ML",{55,61}}, {"ECH",{55,37}}, {"PAS",{55,21}}, {"HH",{55,13}}, {"RCH",{55,5}}, {"DWE",{40,5}}, {"CPH",{35,5}}, {"LHI",{25,5}}, {"BMH",{15,5}}, {"OPT",{10,5}}, {"EV1",{5,13}}, {"EV2",{5,29}}, {"EV3",{5,37}}, {"PHYS",{5,53}}, {"B1",{5,61}}, {"B2",{5,77}}, {"EIT",{10,85}}, {"ESC",{15,85}}, {"C2",{25,85}}, {"MC",{40,85}}, {"DC",{50,85}}};
     public:
-        void textdisplay(std::vector<Player *> Player_Ptrs);
+        void textdisplay(std::vector<Player *> Player_Ptrs, std::vector<char> Player_Dis);
 };
 
 
