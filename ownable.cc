@@ -92,12 +92,12 @@ void Ownable::applyRule(Player *p)
         }
     }
 }
-
+/*
 Player *Ownable::getOwner()
 {
     return info.owner;
 }
-
+*/
 Info Ownable::getInfo()
 {
     return info;
