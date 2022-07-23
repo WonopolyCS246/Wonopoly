@@ -81,6 +81,7 @@
     "map": "cpp",
     "__bits": "cpp",
     "variant": "cpp",
+    "filesystem": "cpp"
     "__tree": "cpp"
   }
 }

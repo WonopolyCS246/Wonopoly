@@ -23,8 +23,6 @@ void Rez::addOwner(Player *p)
     }
     else
     {
-        p->setAssets(p->getAssets() - cost);
-        p->addProp(this);
         owner = p;
     }
 }
@@ -72,14 +70,14 @@ void Rez::applyRule(Player *p)
         {
             rent = 100;
         }
-        else if (count + 1 == 4)
+        else
         {
             rent = 200;
         }
 
         if (rent > p->getAssets())
         {
-            throw NoRent();
+            throw NoRent(rent);
         }
         else
         {
@@ -135,4 +133,19 @@ void Rez::unMortgaged(Player *p)
 void Rez::setOtherRez(std::vector<Property *> otherRez)
 {
     this->otherRez = otherRez;
+}
+
+std::string Rez::getName()
+{
+    return name;
+}
+
+int Rez::getPrice()
+{
+    return cost;
+}
+
+bool Rez::isMortgaged()
+{
+    return mortgaged;
 }

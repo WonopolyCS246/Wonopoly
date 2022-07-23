@@ -17,10 +17,12 @@ class Player
     int RUTR;             // number of roll up the rim cards used.
     bool atTims;
     int turnsAtTims; // number of turns at DC tims when atTims is true.
+    int prevRoll;    // indicates the last roll of the dice.
 
 public:
     Player(std::string name, int assets, int position);
     std::vector<Property *> getProp();
+    void removeProp(Property *p);
     void addProp(Property *p);
     void addAssets(int amount); // note initially int amount was not given but to my best understanding it should accept a parameter of type int.
     // Get Assets was not present in UML
@@ -42,7 +44,10 @@ public:
     void setTutionPaid(bool tutionPaid);
     void setTurnsAtTims(int turns);
     int getTurnsAtTims();
-    
+
+    // forgot to store previous roll sum, so storing that rn.
+    int getPrevRoll();
+    void setPrevRoll(int roll);
 };
 
 #endif // PLAYER

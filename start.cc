@@ -1,19 +1,19 @@
 #include "start.h"
 #include "player.h"
 
-void Start ::addOwner(Player *p){
+void Start::addOwner(Player *p){
     // This Should be empty
 }
 
-bool Start ::isNewOwnable(){
+bool Start::isNewOwnable(){
     return false;
 }
 
-Player * Start ::getOwner() {
+Player * Start::getOwner() {
     return nullptr;
 }
 
-void Start :: applyRule(Player *p) {
+void Start::applyRule(Player *p) {
     // AND Codn
     /*
     * 
