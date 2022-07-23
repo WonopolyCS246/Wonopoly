@@ -22,6 +22,8 @@ Task List
 - [ ] Ctor and Dtors --> A
 - [ ] Attach Obr
 - [ ] Add Owner
+- [ ] Tuition 
+- [ ] CoOp Fee
 ---
 ## Plan Of Attack
 Made By:
