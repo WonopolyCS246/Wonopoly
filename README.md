@@ -19,6 +19,9 @@ Task List
 - [ ] SNH All work (Building --> Bector)
 - [x] Makefile
 - [ ] 4Special Cards
+- [ ] Ctor and Dtors --> A
+- [ ] Attach Obr
+- [ ] Add Owner
 ---
 ## Plan Of Attack
 Made By:
