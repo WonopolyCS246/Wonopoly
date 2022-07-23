@@ -35,18 +35,6 @@ public:
 
 class NoTution
 {
-    int amount;
-
-public:
-    NoTution(int amount)
-    {
-        this->amount = amount;
-    }
-
-    int getAmount()
-    {
-        return amount;
-    }
 };
 
 class NotOwner
