@@ -70,7 +70,7 @@ void Player::setPosition(int position)
 
 int Player::getPosition()
 {
-    return previousPosition;
+    return position;
 }
 
 void Player::setPreviousPosition(int position)
@@ -106,6 +106,31 @@ void Player::setTurnsAtTims(int turns)
 int Player::getTurnsAtTims()
 {
     return turnsAtTims;
+}
+
+// int getPrevRoll();
+//     void setPrevRoll(int roll);
+
+int Player::getPrevRoll()
+{
+    return prevRoll;
+}
+
+void Player::setPrevRoll(int roll)
+{
+    prevRoll = roll;
+}
+
+void Player::removeProp(Property *p)
+{
+    for (int i = 0; i < owned.size(); ++i)
+    {
+        if (owned[i] == p)
+        {
+            owned.erase(owned.begin() + i);
+            break;
+        }
+    }
 }
 
 // Player(std::string name, int assets, int position);
