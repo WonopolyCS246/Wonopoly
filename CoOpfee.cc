@@ -16,3 +16,7 @@ void CoOp :: applyRule(Player *p){
     }
 }
 
+std::string CoOp::getName() {
+    return "Coop Fee";
+}
+

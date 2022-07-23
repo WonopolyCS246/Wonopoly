@@ -10,7 +10,6 @@ class Player;
 // virtual std::string getName();
 
 class Tuition : public Property {
-
     public:
     Tuition();
     void applyRule(Player *p) override;
