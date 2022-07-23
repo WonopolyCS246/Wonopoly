@@ -69,4 +69,11 @@ class MinImprovements
 {
 };
 
+class CoOp {
+
+};
+
+class Tuition{
+
+};
 #endif
