@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Sun Jul 24 02:15:58 2022
+# Make data base, printed on Sun Jul 24 02:39:27 2022
 
 # Variables
 
@@ -25,7 +25,6 @@ make: *** No rule to make target `all'.  Stop.
 # automatic
 @F = $(notdir $@)
 # makefile
- 
 CURDIR := /Users/vbector/Wonopoly
 # makefile
 SHELL = /bin/sh
@@ -33,8 +32,8 @@ SHELL = /bin/sh
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
-# makefile (from `CoOpfee.d', line 1)
-MAKEFILE_LIST :=  Makefile roll2die.d start.d DcTims.d gooseNestings.d goToDcTims.d main.d player.d property.d templatedesign.d randomUint.d ownable.d subject.d mapclass.d gym.d rez.d grid.d errorclass.d CoOpfee.d
+# makefile (from `display.d', line 1)
+MAKEFILE_LIST :=  Makefile roll2die.d start.d DcTims.d gooseNestings.d goToDcTims.d main.d player.d property.d templatedesign.d randomUint.d ownable.d subject.d mapclass.d gym.d rez.d grid.d errorclass.d CoOpfee.d tuition.d display.d
 # makefile (from `Makefile', line 2)
 CXXFLAGS = -std=c++14 -g -Wall -MMD 
 # environment
@@ -145,6 +144,7 @@ HOMEBREW_REPOSITORY = /opt/homebrew
 __CF_USER_TEXT_ENCODING = 0x1F5:0x0:0x52
 # environment
 COMMAND_MODE = unix2003
+ 
 # default
 MAKEFILES := 
 # automatic
@@ -164,7 +164,7 @@ _CE_M =
 # environment
 MAKELEVEL := 0
 # makefile (from `Makefile', line 3)
-OBJECTS = roll2die.o start.o DcTims.o gooseNestings.o goToDcTims.o main.o player.o property.o templatedesign.o randomUint.o ownable.o subject.o mapclass.o gym.o rez.o grid.o errorclass.o CoOpfee.o tuition.o 
+OBJECTS = roll2die.o start.o DcTims.o gooseNestings.o goToDcTims.o main.o player.o property.o templatedesign.o randomUint.o ownable.o subject.o mapclass.o gym.o rez.o grid.o errorclass.o CoOpfee.o tuition.o display.o 
 # environment
 CONDA_PREFIX = /Users/vbector/opt/anaconda3
 # environment
@@ -176,7 +176,7 @@ _CE_CONDA =
 # environment
 LANG = C
 # variable set hash-table stats:
-# Load=80/1024=8%, Rehash=0, Collisions=2/143=1%
+# Load=80/1024=8%, Rehash=0, Collisions=2/147=1%
 
 # Pattern-specific Variable Values
 
@@ -184,9 +184,9 @@ LANG = C
 
 # Directories
 
-# . (device 16777233, inode 23746654): 96 files, no impossibilities.
+# . (device 16777233, inode 23746654): 100 files, no impossibilities.
 
-# 96 files, no impossibilities in 1 directories.
+# 100 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -198,8 +198,7 @@ LANG = C
 start.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-24 02:15:43
- 
+#  Last modified 2022-07-24 02:38:42
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -209,7 +208,7 @@ start.d:
 templatedesign.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-24 02:15:46
+#  Last modified 2022-07-24 02:38:45
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -257,7 +256,7 @@ all:
 property.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-24 02:15:46
+#  Last modified 2022-07-24 02:38:45
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -279,7 +278,7 @@ gooseNestings.o: gooseNestings.cc gooseNestings.h property.h errorclass.h
 #  Modification time never checked.
 #  File has not been updated.
 
-grid.o: grid.cc grid.h player.h property.h ownable.h state.h info.h subject.h observer.h errorclass.h gym.h rez.h templatedesign.h randomUint.h nHallRandom.h slcRandom.h DcTims.h goToDcTims.h CoOpfee.h gooseNestings.h tuition.h start.h roll2die.h display.h
+grid.o: grid.cc grid.h player.h property.h ownable.h state.h info.h subject.h observer.h errorclass.h gym.h rez.h templatedesign.h randomUint.h DcTims.h goToDcTims.h CoOpfee.h gooseNestings.h tuition.h start.h roll2die.h display.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -311,7 +310,7 @@ randomUint.h:
 goToDcTims.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-24 02:15:44
+#  Last modified 2022-07-24 02:38:43
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -321,7 +320,7 @@ goToDcTims.d:
 CoOpfee.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-24 02:15:51
+#  Last modified 2022-07-24 02:38:51
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -360,7 +359,7 @@ mapclass.cc:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-24 02:15:30
+#  Last modified 2022-07-24 02:38:31
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -375,13 +374,13 @@ start.o: start.cc start.h property.h player.h
 roll2die.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-24 02:15:42
+#  Last modified 2022-07-24 02:38:41
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-templatedesign.o: templatedesign.cc templatedesign.h property.h player.h randomUint.h nHallRandom.h slcRandom.h
+templatedesign.o: templatedesign.cc templatedesign.h property.h player.h randomUint.h slcRandom.h nHallRandom.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -390,7 +389,7 @@ templatedesign.o: templatedesign.cc templatedesign.h property.h player.h randomU
 gym.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-24 02:15:49
+#  Last modified 2022-07-24 02:38:48
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -416,7 +415,7 @@ CoOpfee.o: CoOpfee.cc CoOpfee.h property.h player.h errorclass.h
 rez.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-24 02:15:49
+#  Last modified 2022-07-24 02:38:49
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -426,11 +425,10 @@ rez.d:
 randomUint.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-24 02:15:47
+#  Last modified 2022-07-24 02:38:46
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
- 
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
@@ -453,9 +451,20 @@ ownable.h:
 
 # Not a target:
 property.cc:
+ 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+
+# Not a target:
+display.d:
+#  A default, MAKEFILES, or -include/sinclude makefile.
+#  Implicit rule search has been done.
+#  Last modified 2022-07-24 02:38:52
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 info.h:
@@ -484,7 +493,7 @@ goToDcTims.o: goToDcTims.cc goToDcTims.h property.h player.h errorclass.h
 subject.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-24 02:15:48
+#  Last modified 2022-07-24 02:38:47
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -494,7 +503,7 @@ subject.d:
 main.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-24 02:15:45
+#  Last modified 2022-07-24 02:38:44
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -509,6 +518,7 @@ DcTims.h:
 # Not a target:
 nHallRandom.h:
 #  Implicit rule search has not been done.
+ 
 #  Modification time never checked.
 #  File has not been updated.
 
@@ -522,9 +532,9 @@ goToDcTims.h:
 tuition.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-07-24 02:38:51
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
@@ -584,7 +594,7 @@ mapclass.h:
 ownable.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-24 02:15:47
+#  Last modified 2022-07-24 02:38:46
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -612,7 +622,7 @@ clean:
 player.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-24 02:15:45
+#  Last modified 2022-07-24 02:38:44
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -639,12 +649,18 @@ gym.cc:
 # Not a target:
 DcTims.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
+ 
 #  Implicit rule search has been done.
-#  Last modified 2022-07-24 02:15:43
+#  Last modified 2022-07-24 02:38:42
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+display.o: display.cc display.h player.h property.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 state.h:
@@ -687,7 +703,7 @@ subject.o: subject.cc subject.h state.h observer.h
 #  Modification time never checked.
 #  File has not been updated.
 
-main.o: main.cc grid.h player.h property.h ownable.h state.h info.h subject.h observer.h errorclass.h gym.h rez.h templatedesign.h randomUint.h nHallRandom.h slcRandom.h DcTims.h goToDcTims.h CoOpfee.h gooseNestings.h tuition.h start.h
+main.o: main.cc grid.h player.h property.h ownable.h state.h info.h subject.h observer.h errorclass.h gym.h rez.h templatedesign.h randomUint.h DcTims.h goToDcTims.h CoOpfee.h gooseNestings.h tuition.h start.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -702,7 +718,7 @@ property.h:
 errorclass.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-24 02:15:51
+#  Last modified 2022-07-24 02:38:50
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -712,7 +728,7 @@ errorclass.d:
 gooseNestings.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-24 02:15:44
+#  Last modified 2022-07-24 02:38:43
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -722,25 +738,35 @@ gooseNestings.d:
 grid.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-24 02:15:50
+#  Last modified 2022-07-24 02:38:50
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
- 
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 mapclass.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-24 02:15:48
+#  Last modified 2022-07-24 02:38:48
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-tuition.o:
+display.cc:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+tuition.o: tuition.cc tuition.h property.h player.h errorclass.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+tuition.cc:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -762,7 +788,7 @@ ownable.o: ownable.cc ownable.h property.h state.h info.h subject.h observer.h e
 #  Modification time never checked.
 #  File has not been updated.
 
-watopoly: roll2die.o start.o DcTims.o gooseNestings.o goToDcTims.o main.o player.o property.o templatedesign.o randomUint.o ownable.o subject.o mapclass.o gym.o rez.o grid.o errorclass.o CoOpfee.o tuition.o
+watopoly: roll2die.o start.o DcTims.o gooseNestings.o goToDcTims.o main.o player.o property.o templatedesign.o randomUint.o ownable.o subject.o mapclass.o gym.o rez.o grid.o errorclass.o CoOpfee.o tuition.o display.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -782,18 +808,18 @@ observer.h:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=86/1024=8%, Rehash=0, Collisions=15/251=6%
+# Load=90/1024=9%, Rehash=0, Collisions=17/262=6%
 # VPATH Search Paths
 
 # No `vpath' search paths.
 
 # No general (`VPATH' variable) search path.
 
-# # of strings in strcache: 20
+# # of strings in strcache: 21
 # # of strcache buffers: 1
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
-# strcache free: total = 3890 / max = 3890 / min = 3890 / avg = 3890
+# strcache free: total = 3880 / max = 3880 / min = 3880 / avg = 3880
 
-# Finished Make data base on Sun Jul 24 02:15:58 2022
+# Finished Make data base on Sun Jul 24 02:39:27 2022
 
  

@@ -109,13 +109,13 @@ Grid::Grid() {
     } while (numPlayers < 2 || numPlayers > 7); // ensures that the game can be played by 2-7 players
     cout << "You can choose from the following players and their characters: " << endl;
     cout << "Goose - G" << endl;
-    cout << "GRT Bus - B" << endl;
-    cout << "Tim Hortons Doughnut - D" << endl;
+    cout << "GRT- B" << endl;
+    cout << "Doughnut - D" << endl;
     cout << "Professor - P" << endl;
     cout << "Student - S" << endl;
     cout << "Money - $" << endl;
     cout << "Laptop - L" << endl;
-    cout << "Pink tie - T" << endl;
+    cout << "PTie - T" << endl;
     for(int a=0; a<numPlayers; a++) {
         cout << "Enter Player" << (a+1) << "'s name:" << endl;
         string name;
@@ -190,13 +190,12 @@ Grid::~Grid(){
     
 }
 
-/*
 void Display(std::vector<Player *> Player_Ptrs, std::vector<char> Player_Dis, std::vector<Property *> Cards){
     display d;
     d.textdisplay(Player_Ptrs,Player_Dis,Cards);
     return;
 }
-*/
+
 // Explicitly defining the type of auction
 
 // auctionPlayer() calls auctionProperty() on all properties owned by player
@@ -234,7 +233,7 @@ void Grid::play()
         {
             if (!players[i]->getBankruptcy())
             {
-                // Display()
+                Display(players,std::vector<char>{'P','M','V'},cards);
                 // code for text display
                 
                 

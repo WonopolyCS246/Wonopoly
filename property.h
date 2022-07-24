@@ -34,6 +34,7 @@ class Property {
   virtual void setIncrement(int x);
 
   virtual void setOther(Property * other);
+  virtual int getIncrements(); 
 };
 
 #endif

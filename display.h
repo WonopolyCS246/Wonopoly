@@ -5,6 +5,7 @@
 #include <map>
 
 class Player;
+class Property;
 
 struct Pixel {
     int Ln;
