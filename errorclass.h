@@ -16,10 +16,6 @@ class NotMortgage{
         double getAmount();
 };
 
-class NoTution
-{
-};
-
 class IllegalMove
 {
     public:
@@ -44,11 +40,11 @@ class MinImprovements
     MinImprovements();
 };
 
-class CoOp {
+class NoCoOp{
 
 };
 
-class Tuition{
+class NoTuition{
 
 };
 

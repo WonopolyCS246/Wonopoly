@@ -8,12 +8,12 @@ void applyRule(Player *p) override;
 std::string getName() override;
 */
 
-Tuition::Tuition() {
-
+Tuition::Tuition(int position) {
+    Property::position = position;
 }
 
 void Tuition::applyRule(Player *p) {
-    throw Tuition{};
+    throw NoTuition{};
 }
 
 std::string Tuition::getName() {

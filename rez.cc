@@ -11,8 +11,9 @@
 //     std::string name;
 //     int position;
 
-Rez::Rez(Player *owner, std::string name, int position, bool mortgaged) : owner{owner}, mortgaged{mortgaged}, cost{200}, otherRez{}, name{name}, position{position}
+Rez::Rez(Player *owner, std::string name, int position, bool mortgaged) :  owner{owner}, mortgaged{mortgaged}, cost{200}, otherRez{}, name{name}
 {
+    Property::position = position;
 }
 
 void Rez::addOwner(Player *p)
@@ -142,6 +143,8 @@ void Rez::setOther(Property * other)
 void Rez::setOwner(Player *owner) {
     this->owner = owner;
 }
-int Rez::getPosition(){
-    return this->position;
+
+
+int Rez::getPrice(){
+    return cost;
 }

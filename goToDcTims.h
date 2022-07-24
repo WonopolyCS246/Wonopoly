@@ -9,6 +9,7 @@ class Player;
 
 class goToDcTims : public Property {
     public:
+        goToDcTims(int position);
         void addOwner(Player *p) override;
         bool isNewOwnable() override;
         void applyRule(Player *p) override; 

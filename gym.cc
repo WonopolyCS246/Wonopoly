@@ -3,8 +3,9 @@
 #include "mapclass.h"
 #include "errorclass.h"
 
-Gym::Gym(Player *owner, std::string name, int position, bool mortgaged) : owner{owner}, mortgaged{mortgaged}, cost{150}, name{name}, position{position}
+Gym::Gym(Player *owner, std::string name, int position, bool mortgaged) : owner{owner}, mortgaged{mortgaged}, cost{150}, name{name} 
 {
+    Property::position = position;
 } 
 
 void Gym::addOwner(Player *p) {
@@ -93,7 +94,8 @@ void Gym::setOther(Property * other) {
 void Gym::setOwner(Player *owner) {
     this->owner = owner;
 }
-
-int Gym::getPosition(){
-    return this->position;
+int Gym::getPrice(){
+    return cost; 
 }
+
+

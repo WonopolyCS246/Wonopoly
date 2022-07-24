@@ -2,6 +2,10 @@
 #include "errorclass.h"
 //#include "applyRuleTims.h"
 
+DcTims::DcTims(int position) {
+    Property::position = position;
+}
+
 void DcTims :: addOwner(Player *p){
     // This Should be empty
     //throw IllegalMove();

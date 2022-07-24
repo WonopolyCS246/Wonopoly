@@ -4,89 +4,210 @@
 #include "ownable.h"
 #include "player.h"
 #include "roll2die.h"
-
+#include "display.h"
 #include "errorclass.h"
 using namespace std;
 
-// std::vector<Property *> cards;
-// std::vector<Player *> players;
-// std::vector<char> disp;
-// std::unordered_map<std::string, int> piece;
-// std::unordered_map<std::string, Player*> names;
-
-// istringstream Grid::info(ifstream &file, int *impr)
-// {
-//     string line;
-//     getline(file, line);
-//     istringstream ss{line};
-//     string s;
-//     ss >> s; // building name
-//     ss >> s; // name of property
-//     int n;
-//     ss >> n;
-//     *impr = n;       // stores the number of improvements
-//     return names[s]; // returns the appropriate player* using the unordered list
-// }
-
-// Grid::Grid(std::ifstream infile)
-// {
-//     string s;
-//     getline(infile, s);
-//     istringstream line{s};
-//     line >> numPlayers; // first line of the file is the number of players
-//     for (int a = 0; a < numPlayers; a++)
-//     { // reading in the details of the players
-//         getline(infile, s);
-//         istringstream data{s};
-//         string name;
-//         data >> name; // Player name
-//         char ch;
-//         data >> ch; // Player character
-//         int tc;
-//         data >> tc; // Tim Cards
-//         int assets;
-//         data >> assets; // Assets/Money
-//         int pos;
-//         data >> pos; // Position on the board
-//         Player *p = new Player{name, assets, pos};
-//         p->setRUTR(tc);
-//         if (pos == 10)
-//         { // means that the player is at Dc Tims
-//             int n;
-//             data >> n;
-//             if (n == 0)
-//             {
-//                 // player is at Dc Tims but has not been sent there so nothing happens
-//             }
-//             else if (n == 1)
-//             {
-//                 int num; // between 0 and 2, indicates the number of turns the player has been at DC Tims
-//                 data >> num;
-//                 p->setTurnsAtTims(num);
-//             }
-//         }
-//         players.emplace_back(p);
-//         disp.emplace_back(ch);
-//     }
-//     // now, time to create the names map that maps player names to player ptrs
-//     for (int a = 0; a < numPlayers; a++)
-//     {
-//         string name = players[a]->getName();
-//         names[name] = players[a];
-//     }
-//     cards.emplace_back(new Start{});
-//     int *impr = new int{0};
-//     Player *p = info(infile, impr);
-//     cards.emplace_back(new Ownable{});
-// }
-Grid::Grid() {
-
+bool Grid::inList(string s) {
+    if (s == "Goose" || s == "GRT Bus" || s == "Tim Hortons Doughnut" || s == "Professor" || 
+        s == "Student" || s == "Money" || s == "Laptop" || s == "Pink Tie") {
+        return true;
+    }
+    return false;
 }
+
+void Grid::playerMap() {
+    // now, time to create the names map that maps player names to player ptrs
+    for(int a=0; a<numPlayers; a++) {
+        string name = players[a]->getName();
+        names[name] = players[a];
+    }
+}
+
+void Grid::attachObservers() {
+    // ACADEMIC BUILDINGS
+    cards[1]->attach(cards[3]); // AL -> ML
+    cards[3]->attach(cards[1]); // ML -> AL
+
+    cards[6]->attach(cards[8]); // ECH -> PAS
+    cards[6]->attach(cards[9]); // ECH -> HH
+    cards[8]->attach(cards[6]); // PAS -> ECH
+    cards[8]->attach(cards[9]); // PAS -> HH
+    cards[9]->attach(cards[6]); // HH -> ECH
+    cards[9]->attach(cards[8]); // HH -> PAS
+
+    cards[11]->attach(cards[13]); // RCH -> DWE
+    cards[11]->attach(cards[14]); // RCH -> CPH
+    cards[13]->attach(cards[11]); // DWE -> RCH
+    cards[13]->attach(cards[14]); // DWE -> CPH
+    cards[14]->attach(cards[11]); // CPH -> RCH
+    cards[14]->attach(cards[13]); // CPH -> DWE
+
+    cards[16]->attach(cards[18]); // LHI -> BMH
+    cards[16]->attach(cards[19]); // LHI -> OPT
+    cards[18]->attach(cards[16]); // BMH -> LHI
+    cards[18]->attach(cards[19]); // BMH -> OPT
+    cards[19]->attach(cards[16]); // OPT -> LHI
+    cards[19]->attach(cards[18]); // OPT -> BMH
+
+    cards[21]->attach(cards[23]); // EV1 -> EV2
+    cards[21]->attach(cards[24]); // EV1 -> EV3
+    cards[23]->attach(cards[21]); // EV2 -> EV1
+    cards[23]->attach(cards[24]); // EV2 -> EV3
+    cards[24]->attach(cards[21]); // EV3 -> EV1
+    cards[24]->attach(cards[23]); // EV3 -> EV2
+
+    cards[26]->attach(cards[27]); // PHYS -> B1
+    cards[26]->attach(cards[29]); // PHYS -> B2
+    cards[27]->attach(cards[26]); // B1 -> PHYS
+    cards[27]->attach(cards[29]); // B1 -> B2
+    cards[29]->attach(cards[26]); // B2 -> PHYS
+    cards[29]->attach(cards[27]); // B2 -> B1
+
+    cards[31]->attach(cards[32]); // EIT -> ESC
+    cards[31]->attach(cards[34]); // EIT -> C2
+    cards[32]->attach(cards[31]); // ESC -> EIT
+    cards[32]->attach(cards[34]); // ESC -> C2
+    cards[34]->attach(cards[31]); // C2 -> EIT
+    cards[34]->attach(cards[32]); // C2 -> ESC
+
+    cards[37]->attach(cards[39]); // MC -> DC
+    cards[39]->attach(cards[37]); // DC -> MC
+
+    // REZ
+    cards[5]->setOther(cards[15]); // MKV -> UWP
+    cards[5]->setOther(cards[25]); // MKV -> V1
+    cards[5]->setOther(cards[35]); // MKV -> REV
+
+    cards[15]->setOther(cards[5]); // UWP -> MKV
+    cards[15]->setOther(cards[25]); // UWP -> V1
+    cards[15]->setOther(cards[35]); // UWP -> REV
+
+    cards[25]->setOther(cards[5]); // V1 -> MKV
+    cards[25]->setOther(cards[15]); // V1 -> UWP
+    cards[25]->setOther(cards[35]); // V1 -> REV
+
+    cards[35]->setOther(cards[5]); // REV -> MKV
+    cards[35]->setOther(cards[15]); // REV -> UWP
+    cards[35]->setOther(cards[25]); // REV -> V1
+
+    // GYM
+    cards[12]->setOther(cards[28]); // PAC -> CIF
+    cards[28]->setOther(cards[12]); // CIF -> PAC
+}
+
+void Grid::characterMapInit() {
+    characters["Goose"] = 'G';
+    characters["GRT Bus"] = 'B';
+    characters["Tim Hortons Doughnut"] = 'D';
+    characters["Professor"] = 'P';
+    characters["Student"] = 'S';
+    characters["Money"] = '$';
+    characters["Laptop"] = 'L';
+    characters["Pink Tie"] = 'T';
+}
+
+Grid::Grid() {
+    characterMapInit();
+    cout << "New Game" << endl;
+    cout << "Enter the number of players: [should be between 2 and 7, inclusive] " << endl;
+    int numPlayers = 0;
+    do {
+        cin >> numPlayers;
+    } while (numPlayers < 2 || numPlayers > 7); // ensures that the game can be played by 2-7 players
+    cout << "You can choose from the following players and their characters: " << endl;
+    cout << "Goose - G" << endl;
+    cout << "GRT Bus - B" << endl;
+    cout << "Tim Hortons Doughnut - D" << endl;
+    cout << "Professor - P" << endl;
+    cout << "Student - S" << endl;
+    cout << "Money - $" << endl;
+    cout << "Laptop - L" << endl;
+    cout << "Pink tie - T" << endl;
+    for(int a=0; a<numPlayers; a++) {
+        cout << "Enter Player" << (a+1) << "'s name:" << endl;
+        cout << "You will continue to be prompted until you enter a name from above." << endl;
+        string name;
+        do {
+            cin >> name;
+        } while (!inList(name)); // ensures that the player's name is in the list of characters
+        Player *p = new Player{name, 1500, 0};
+        players.emplace_back(p);
+        disp.emplace_back(characters[name]);
+    }
+    playerMap();
+    attachObservers();
+}
+
+Grid::Grid(std::ifstream infile) {
+    characterMapInit();
+    string s;
+    getline(infile, s);
+    istringstream line{s};
+    line >> numPlayers; // first line of the file is the number of players
+    for (int a=0; a<numPlayers; a++) { // reading in the details of the players
+        getline(infile, s);
+        istringstream data{s};
+        string name;
+        data >> name; // Player name
+        char ch;
+        data >> ch; // Player character
+        int tc;
+        data >> tc; // Tim Cards
+        int assets;
+        data >> assets; // Assets/Money
+        int pos;
+        data >> pos; // Position on the board
+        Player *p = new Player{name, assets, pos};
+        p->setRUTR(tc);
+        if (pos == 10) { // means that the player is at Dc Tims
+            int n;
+            data >> n;
+            if (n == 0) {
+                // player is at Dc Tims but has not been sent there so nothing happens
+            } else if (n == 1) {
+                int num; // between 0 and 2, indicates the number of turns the player has been at DC Tims
+                data >> num;
+                p->setTurnsAtTims(num);
+            }
+        } 
+        players.emplace_back(p);
+        disp.emplace_back(ch);
+    }
+    playerMap();
+    string data;
+    while(getline(infile, data)) {
+        istringstream ss{data};
+        string name;
+        string owner;
+        int impr;
+        ss >> name;
+        if (name == "BANK") { // unowned building
+            continue;
+        }
+        ss >> owner;
+        ss >> impr;
+        for(int a=0; a<28; a++) {
+            if (cards[a]->getName() == name) {
+                cards[a]->setOwner(names[owner]);
+                cards[a]->setIncrement(impr);
+            }
+        }
+    }
+    attachObservers();
+}
+
 Grid::~Grid(){
     
 }
 
-
+/*
+void Display(std::vector<Player *> Player_Ptrs, std::vector<char> Player_Dis, std::vector<Property *> Cards){
+    display d;
+    d.textdisplay(Player_Ptrs,Player_Dis,Cards);
+    return;
+}
+*/
 // Explicitly defining the type of auction
 
 // auctionPlayer() calls auctionProperty() on all properties owned by player
@@ -124,6 +245,10 @@ void Grid::play()
         {
             if (!players[i]->getBankruptcy())
             {
+                // Display()
+                // code for text display
+                
+                
                 int a = handlePre(players[i]);
                 if (a == 2)
                 {
@@ -399,6 +524,77 @@ Property *getProperty(string name)
 {
 
     return nullptr;
+}
+
+void Grid::save(string fname, int index) {
+    ofstream file(fname);
+    file << numPlayers << endl;
+    // add all the players and their details to the file
+    for(int a=index; a<numPlayers; a++) {
+        if (players[a]->getPosition() == 10) { //at DcTims
+            if (players[a]->getAtTims()) {
+                file << players[a]->getName() << " "
+                     << disp[a] << " "
+                     << players[a]->getRUTR() << " "
+                     << players[a]->getAssets() << " "
+                     << players[a]->getPosition() << " "
+                     << "1 " << players[a]->getTurnsAtTims() << endl;
+            } else {
+                file << players[a]->getName() << " "
+                     << disp[a] << " "
+                     << players[a]->getRUTR() << " "
+                     << players[a]->getAssets() << " "
+                     << players[a]->getPosition() << " "
+                     << "0 " << endl;
+            }
+        } else {
+            file << players[a]->getName() << " "
+             << disp[a] << " "
+             << players[a]->getRUTR() << " "
+             << players[a]->getAssets() << " "
+             << players[a]->getPosition() << endl;
+        }
+    }
+    for(int a=0; a<index; a++) {
+        if (players[a]->getPosition() == 10) { //at DcTims
+            if (players[a]->getAtTims()) {
+                file << players[a]->getName() << " "
+                     << disp[a] << " "
+                     << players[a]->getRUTR() << " "
+                     << players[a]->getAssets() << " "
+                     << players[a]->getPosition() << " "
+                     << "1 " << players[a]->getTurnsAtTims() << endl;
+            } else {
+                file << players[a]->getName() << " "
+                     << disp[a] << " "
+                     << players[a]->getRUTR() << " "
+                     << players[a]->getAssets() << " "
+                     << players[a]->getPosition() << " "
+                     << "0 " << endl;
+            }
+        } else {
+            file << players[a]->getName() << " "
+             << disp[a] << " "
+             << players[a]->getRUTR() << " "
+             << players[a]->getAssets() << " "
+             << players[a]->getPosition() << endl;
+        }
+    }
+    // we need to add each of the 40 cards and their owner and improvements to the file
+    for(int a=0; a<40; a++) {
+        try {
+            // All Ownable Properties
+            if (cards[a]->getOwner() != nullptr) {
+            // file << cards[a]->getName() << " "
+            //      << cards[a]->getOwner()->getName() << " "
+            //      << cards[a]->getImprovements() << endl;
+            } else {
+                file << cards[a]->getName() << " BANK 0" << endl;
+            }
+        } catch (...) {
+            continue; // skip non-ownable buildings
+        }
+    }
 }
 
 void Grid::auctionProperty(Property *p, Player *p1)
@@ -1207,11 +1403,11 @@ void Grid::handlecard(Property *p, Player *p1)
                 p1->transfer(p->getOwner());
             }
         }
-        catch (Tuition t)
+        catch (NoTuition t)
         {
             handletution(p1);
         }
-        catch (CoOp t)
+        catch (NoCoOp t)
         {
             handleCoop(p1);
         }

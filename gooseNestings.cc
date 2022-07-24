@@ -2,6 +2,10 @@
 #include <iostream>
 #include "errorclass.h"
 
+gooseNestings::gooseNestings(int position) {
+    Property::position = position;
+}
+
 void gooseNestings :: addOwner(Player *p){
     // This Should be empty
     throw IllegalMove();

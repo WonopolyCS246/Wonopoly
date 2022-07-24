@@ -14,7 +14,6 @@ struct Info
     int cost;         // stores the cost of the property
     std::string name; // stores the name of the property
     int increments;   // stores the number of increments the property has been owned for
-    int position;
     Faculty faculty;
 };
 

@@ -1,6 +1,10 @@
 #include "start.h"
 #include "player.h"
 
+Start::Start(int position) {
+    Property::position = position;
+}
+
 void Start::addOwner(Player *p){
     // This Should be empty
 }

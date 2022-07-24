@@ -74,3 +74,10 @@ void Property::setOther(Property * other){
     
 }
 
+int Property::getPosition(){
+    return position;
+}
+void Property::setPosition(int Position){
+    this->position = Position;
+}
+

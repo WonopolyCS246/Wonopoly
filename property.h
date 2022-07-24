@@ -1,12 +1,13 @@
 #ifndef PROPERTY_H
 #define PROPERTY_H
 
+#include <string>
 class Player; // forward declaration
 
-class Property
-{
-
-public:
+class Property {
+  protected:
+    int position;
+  public:
   //Property(); // default constructor
   virtual void addOwner(Player *p);
   virtual bool isNewOwnable();
@@ -25,11 +26,13 @@ public:
   virtual void addincrement(Player *p);
   virtual void attach(Property *o);
   virtual int getPrice();
-
+  virtual int getPosition();
+  virtual void setPosition(int Position);
   virtual std::string getName();
   virtual int getIncrementcost(); 
   virtual void setOwner(Player *owner);
   virtual void setIncrement(int x);
+
   virtual void setOther(Property * other);
 };
 

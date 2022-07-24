@@ -8,11 +8,15 @@ void applyRule(Player *p) override;
 std::string getName() override;
 */
 
+CoOp::CoOp(int position) {
+    Property::position = position;
+}
+
 void CoOp :: applyRule(Player *p){
-    if (p->getAssets >= 150){
+    if (p->getAssets() >= 150){
         p->setAssets(p->getAssets()-150);
     } else {
-        throw CoOp();
+        throw NoCoOp();
     }
 }
 

@@ -11,9 +11,9 @@ class Player;
 
 class Tuition : public Property {
     public:
-    Tuition();
+    Tuition(int position);
     void applyRule(Player *p) override;
     std::string getName() override;
 };
 
-#endif TUITION_H
+#endif //TUITION_H

@@ -15,7 +15,6 @@ class Rez : public Property
     int cost;
     std::vector<Property *> otherRez; // this needs to be set later individually.
     std::string name;
-    int position;
 
 public:
     Rez(Player *owner, std::string name, int position, bool mortgaged);
@@ -27,7 +26,7 @@ public:
     void unMortgaged(Player *p) override;  // // this is to unmortage the property
     void setOther(Property * other)  override;
     void setOwner(Player *owner) override;
-    int getPosition();
+    int getPrice() override; 
 };
 
 #endif 

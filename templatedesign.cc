@@ -1,4 +1,6 @@
 #include "templatedesign.h"
+#include "slcRandom.h"
+#include "nHallRandom.h"
 
 Player* templateDesign :: getOwner(){
     return nullptr;
@@ -14,6 +16,10 @@ bool templateDesign ::isNewOwnable(){
 
 unsigned templateDesign :: random(){
     return seed();
+}
+
+Slc::Slc(int Position) {
+    Property::position = Position;
 }
 
 void Slc :: applyRule(Player *p ){
@@ -57,6 +63,10 @@ void Slc :: applyRule(Player *p ){
     default:
         break;
     }
+}
+
+Nhall::Nhall(int Position) {
+    Property::position = Position;
 }
 
 void Nhall :: applyRule(Player *p ){

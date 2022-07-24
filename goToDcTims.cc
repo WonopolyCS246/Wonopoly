@@ -2,6 +2,10 @@
 #include "player.h"
 #include "errorclass.h"
 
+goToDcTims::goToDcTims(int position) {
+    Property::position = position;
+}
+
 void goToDcTims :: addOwner(Player *p){
     // This Should be empty
     throw IllegalMove();
