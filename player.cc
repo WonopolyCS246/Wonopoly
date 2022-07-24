@@ -1,6 +1,22 @@
 #include "player.h"
 #include "property.h"
 
+
+// std::string name;
+//     std::vector<Property *> owned;
+//     int assets;
+//     bool bankruptcy;
+//     // TutionPaid was not present in the UML
+//     bool tutionPaid;
+//     int position;
+//     int previousPosition; // this has been added keeping in mind that previousPosition must be know for graphic purposes
+//     int RUTR;             // number of roll up the rim cards used.
+//     bool atTims;
+//     int turnsAtTims; // number of turns at DC tims when atTims is true.
+//     int prevRoll;    // indicates the last roll of the dice.
+
+
+
 Player::Player(std::string name, int assets, int position) : name(name), assets(assets), bankruptcy{false}, position(position), previousPosition{0}, RUTR(0), atTims(false), tutionPaid(false) {}
 
 std::vector<Property *> Player::getProp()

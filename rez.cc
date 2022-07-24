@@ -3,7 +3,15 @@
 #include "mapclass.h"
 #include "errorclass.h"
 
-Rez::Rez(Player *owner, std::string name, int position, bool mortaged) : owner{owner}, mortgaged{mortgaged}, cost{200}, name{name}, position{position}
+
+//  Player *owner; // pointer to the owner of the property
+//     bool mortgaged;
+//     int cost;
+//     std::vector<Property *> otherRez; // this needs to be set later individually.
+//     std::string name;
+//     int position;
+
+Rez::Rez(Player *owner, std::string name, int position, bool mortaged) : owner{owner}, mortgaged{mortgaged}, cost{200}, otherRez{}, name{name}, position{position}
 {
 }
 
@@ -125,7 +133,7 @@ void Rez::unMortgaged(Player *p)
     }
 }
 
-void Rez::setOtherRez(std::vector<Property *> otherRez)
+void Rez::setOther(std::vector<Property *> other)
 {
     this->otherRez = otherRez;
 }

@@ -79,9 +79,11 @@ using namespace std;
 //     Player *p = info(infile, impr);
 //     cards.emplace_back(new Ownable{});
 // }
+Grid::Grid() {
 
-Grid::~Grid()
-{
+}
+Grid::~Grid(){
+    
 }
 
 
@@ -150,7 +152,7 @@ void Grid::auctionPlayer(Player *p)
 {
     p->setBankruptcy(true);
 
-    for (int i = 0; i = p->getProp().size(); ++i)
+    for (int i = 0; i == p->getProp().size(); ++i)
     {
         auctionProperty(p->getProp()[i], p);
     }
@@ -276,6 +278,7 @@ void Grid::handleRoll(Player *p)
     }
     else
     {
+
         vector<int> a = roll2die();
         int sum = a[0] + a[1];
         p->setPrevRoll(sum);
@@ -529,7 +532,7 @@ void Grid::auctionProperty(Property *p, Player *p1)
 
 // handles logic for a single trade.
 // need to make trade later.
-void trade(Player *p, Player *p2, int amount, Property *pt)
+void Grid::trade(Player *p, Player *p2, int amount, Property *pt)
 {
     if (p->getAssets() < amount)
     {
@@ -576,7 +579,7 @@ string getnameproperty(Property *p1)
     return "";
 }
 
-void trade(Player *p, Player *p2, Property *pt1, Property *pt2)
+void Grid::trade(Player *p, Player *p2, Property *pt1, Property *pt2)
 {
     if (pt1->getOwner() != p || pt2->getOwner() != p2)
     {
@@ -614,7 +617,7 @@ void trade(Player *p, Player *p2, Property *pt1, Property *pt2)
     }
 }
 
-void trade(Player *p, Player *p2, Property *pt1, int amount)
+void Grid::trade(Player *p, Player *p2, Property *pt1, int amount)
 {
     if (pt1->getOwner() != p || p2->getAssets() < amount)
     {
@@ -903,89 +906,6 @@ void Grid::newownable(Player *pl, Property *p)
     }
 }
 
-// void NoRent(int amount, Player *ownee, Player *owned)
-// {
-//     cout << "You are short of money to pay rent!" << endl;
-//     cout << "You have to pay " << amount << " to " << owned->getName() << endl;
-//     cout << "Raise money or declare bankruptcy" << endl;
-
-//     while (true)
-//     {
-//         cout << "Type in a valid command" << endl;
-//         if (ownee->getAssets() >= amount)
-//         {
-//             ownee->setAssets(ownee->getAssets() - amount);
-//             owned->setAssets(owned->getAssets() + amount);
-//             break;
-//         }
-
-//         string s;
-//         getline(cin, s);
-//         stringstream ss{s};
-//         string g;
-//         ss >> g;
-//         if (g == "bankrupt")
-//         {
-//             // toogling backrupty in transfer method
-//             ownee->transfer(owned);
-//         }
-
-//         else if (g == "trade")
-//         {
-//             // handle logic for trading
-//         }
-
-//         else if (g == "improve")
-//         {
-//             // handle for selling improvements
-
-//             cin >> g;
-
-//             // note that using typecasting here to covert to ownable where I can use the methods but need to
-//             // implement checks here
-
-//             Ownable *p = (Ownable *)getProperty(g);
-
-//             cin >> g;
-
-//             if (g == "sell")
-//             {
-//                 try
-//                 {
-//                     p->removeincrement(ownee);
-//                 }
-//                 catch (...)
-//                 {
-//                     cout << "Either you don't own this property or or this is an illegal move" << endl;
-//                 }
-//             }
-//         }
-
-//         else if (g == "mortgage")
-//         {
-//             // logic for handling mortage
-
-//             ss >> g;
-//             Property *p = getProperty(g);
-
-//             try
-//             {
-//                 (Ownable *)p->mortgage();
-//             }
-//             catch (...)
-//             {
-//                 cout << "You don't own this" << endl;
-//             }
-//         }
-//     }
-// }
-
-// this is a function that takes in sum and updates the player's postion and if the player crosses start,
-// he shall also revieve $200.
-
-// I'm making the assumption that 0 is the start position
-
-// previous roll needs to be stored before this function is called.
 void Grid::handlepassthorugh(int sum, Player *p)
 {
     if ((p->getPosition() + sum) % 40 < p->getPosition())
@@ -1225,88 +1145,6 @@ void Grid::handletution(Player *p1)
         }
     }
 }
-
-// void Grid::handlecard(Property *p, Player *p1)
-// {
-//     if (p->isNewOwnable())
-//     {
-//         newownable(p1, p);
-//         return;
-//     }
-//     else
-//     {
-//         try
-//         {
-//             p->applyRule(p1);
-//         }
-//         catch (NotMortgage m)
-//         {
-//             if (p1->getAssets() > m.getAmount())
-//             {
-//                 cout << "You did not unmortage this property" << endl;
-//                 cout << "But since you landed here again amount of $" << m.getAmount() << " has been removed from your assets" << endl;
-//                 p1->setAssets(p1->getAssets() - m.getAmount());
-//                 p->setMortgaged(false);
-//                 return;
-//             }
-//             else
-//             {
-//                 cout << "You don't currently have enough money to unmortgage this property" << endl;
-//                 cout << "But since you landed here again amount of $" << m.getAmount() << " has been removed from your assets" << endl;
-//                 if (raise(p1, m.getAmount()))
-//                 {
-//                     p1->setAssets(p1->getAssets() - m.getAmount());
-//                     p->setMortgaged(false);
-//                     return;
-//                 }
-//                 else
-//                 {
-//                     cout << "You have failed to unmortgage this property" << endl;
-//                     p1->setBankruptcy(true);
-//                     auctionPlayer(p1);
-//                 }
-//             }
-//         }
-//         catch (NoRent n)
-//         {
-//             cout << "You landed on a property for which you don't have the balance to pay rent" << endl;
-//             cout << "But since you landed here you need to pay $" << n.getRent() << " " << endl;
-
-//             if (raise(p1, n.getRent()))
-//             {
-//                 p1->setAssets(p1->getAssets() - n.getRent());
-//                 p->getOwner()->setAssets(n.getRent());
-//                 return;
-//             }
-//             else
-//             {
-//                 cout << "You have failed to pay rent" << endl;
-//                 p1->setBankruptcy(true);
-//                 p1->transfer(p->getOwner());
-//             }
-//         }
-//         catch (NoTution t)
-//         {
-//             cout << "You have landed on tution which you didn't have the balance to pay" << endl;
-//             cout << "But since you landed here you need to pay $" << t.getAmount() << " " << endl;
-
-//             if (raisetution(p1, t.getAmount()))
-//             {
-//                 p1->setAssets(p1->getAssets() - t.getAmount());
-//                 return;
-//             }
-//             else
-//             {
-//                 p1->setBankruptcy(true);
-//                 auctionPlayer(p1);
-//             }
-//         }
-//         catch (...)
-//         {
-//             cout << "Illegal move " << endl;
-//         }
-//     }
-// }
 
 void Grid::handlecard(Property *p, Player *p1)
 {

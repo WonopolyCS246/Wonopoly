@@ -12,7 +12,7 @@ class Gym : public Property
 {
     Player *owner; // pointer to the owner of the property
     bool mortgaged;
-    bool cost;
+    int cost;
     std::vector<Property *> otherGym; // this needs to be set later individually.
     std::string name;
     int position;
@@ -25,7 +25,7 @@ public:
     Player *getOwner() override;  // this is to get the owner of the property
     void setMortgaged(Player *p); // this is to set the mortgaged status of the property
     void unMortgaged(Player *p);  // // this is to unmortage the property
-    void setOtherGym(std::vector<Property *> otherGym);
+    void setOther(std::vector<Property *> other) override;
     void setOwner(Player *owner) override;
 };
 

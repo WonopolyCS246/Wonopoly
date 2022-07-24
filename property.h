@@ -7,7 +7,7 @@ class Property
 {
 
 public:
-  Property(); // default constructor
+  //Property(); // default constructor
   virtual void addOwner(Player *p);
   virtual bool isNewOwnable();
   virtual void applyRule(Player *p) = 0; // note that is it important on know which we are applying rule
@@ -30,6 +30,7 @@ public:
   virtual int getIncrementcost(); 
   virtual void setOwner(Player *owner);
   virtual void setIncrement(int x);
+  virtual void setOther(std::vector<Property *> other);
 };
 
 #endif

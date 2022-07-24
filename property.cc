@@ -34,27 +34,22 @@ Player *Property::getOwner()
     return nullptr;
 } // this is to get the owner of the property
 
-bool Property::isNewOwnable()
-{
+bool Property::isNewOwnable(){
     return false;
 } // this is to check if the property is new ownable
 
-void Property::attach(Property *o)
-{
+void Property::attach(Property *o){
 }
 
-std::string Property::getName()
-{
+std::string Property::getName(){
     return "";
 }
 
-int Property::getPrice()
-{
+int Property::getPrice(){
     return 0;
 }
 
-bool Property::isMortgaged()
-{
+bool Property::isMortgaged(){
     return false;
 }
 
@@ -73,5 +68,9 @@ void Property::setOwner(Player *owner) {
 
 void Property::setIncrement(int x) {
 
+}
+
+void Property::setOther(std::vector<Property *> other){
+    
 }
 

@@ -24,7 +24,7 @@ using namespace std;
 
 
 
-Ownable::Ownable(Player *owner, std::string name, int position, Faculty faculty, int increments, bool mortaged) : Subject(State{nullptr, StateType::EstMono, Direction::Left, Faculty::Arts1, false}),
+Ownable::Ownable(Player *owner, std::string name, int position, Faculty faculty, int increments, bool mortaged) : Property{} ,Subject(State{nullptr, StateType::EstMono, Direction::Left, Faculty::Arts1, false}), Observer{}, 
                                                                                                                   info{Info{owner, mortaged, false, a.getprice(name), name, increments, position, faculty}}
 {
 }

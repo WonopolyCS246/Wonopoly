@@ -17,8 +17,9 @@ int main(int argc, char **argv){
         ss >> s;
         if (s == "-testing") {
             // Do whatever the testing flag means
-            Grid g;
-            g.play();
+            //Grid g;
+            //g.play();
+            cout << " testing " << endl;
         } else {
             cout << "Format: ./monopoly -load file -testing" << endl;
             cout << "You can omit either -load file and/or -testing" << endl;
@@ -32,8 +33,9 @@ int main(int argc, char **argv){
             istringstream ss1{argv[2]};
             string s1;
             ss1 >> s1;
-            Grid g{ifstream{s1}};
-            g.play();
+            cout << " ./monopoly -load file "<< argv[2] << endl;
+            //Grid g{ifstream{s1}};
+            //g.play();
         }  else {
             cout << "Format: ./monopoly -load file -testing" << endl;
             cout << "You can omit either -load file and/or -testing" << endl;
@@ -50,8 +52,9 @@ int main(int argc, char **argv){
         string s2;
         ss2 >> s2;
         if (s == "-load" && s2 == "-testing") {
-            Grid g{ifstream{s1}};
-            g.play();
+            //Grid g{ifstream{s1}};
+            //g.play();
+            cout << "-loading and -testing" << endl;
             // do whatever the -testing flag means
         } else {
             cout << "Format: ./monopoly -load file -testing" << endl;

@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Sat Jul 23 22:22:45 2022
+# Make data base, printed on Sat Jul 23 23:02:51 2022
 
 # Variables
 
@@ -20,12 +20,12 @@ make: *** No rule to make target `all'.  Stop.
 ?F = $(notdir $?)
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
+ 
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # automatic
 @F = $(notdir $@)
 # makefile
- 
 CURDIR := /Users/vbector/Wonopoly
 # makefile
 SHELL = /bin/sh
@@ -33,18 +33,18 @@ SHELL = /bin/sh
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
-# makefile (from `gym.d', line 1)
-MAKEFILE_LIST :=  Makefile start.d DcTims.d gooseNestings.d goToDcTims.d main.d player.d property.d templatedesign.d randomUint.d ownable.d subject.d mapclass.d gym.d
+# makefile (from `errorclass.d', line 1)
+MAKEFILE_LIST :=  Makefile roll2die.d start.d DcTims.d gooseNestings.d goToDcTims.d main.d player.d property.d templatedesign.d randomUint.d ownable.d subject.d mapclass.d gym.d rez.d grid.d errorclass.d
 # makefile (from `Makefile', line 2)
 CXXFLAGS = -std=c++14 -g -Wall -MMD 
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-INFOPATH = /opt/homebrew/share/info:
+INFOPATH = /opt/homebrew/share/info:/opt/homebrew/share/info:
 # environment
 VSCODE_CWD = /
 # environment
-PATH = /Users/vbector/opt/anaconda3/bin:/Users/vbector/opt/anaconda3/condabin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin
+PATH = /opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin:/Users/vbector/opt/anaconda3/bin:/Users/vbector/opt/anaconda3/condabin:/opt/homebrew/bin:/opt/homebrew/sbin
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
@@ -64,7 +64,7 @@ HOMEBREW_CELLAR = /opt/homebrew/Cellar
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
-MANPATH = /opt/homebrew/share/man::
+MANPATH = /opt/homebrew/share/man:/usr/share/man:/usr/local/share/man:/opt/X11/share/man:/opt/homebrew/share/man:
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -78,7 +78,7 @@ LOGNAME = vbector
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
-CONDA_PROMPT_MODIFIER = (base) 
+CONDA_PROMPT_MODIFIER = (base)
 # makefile (from `Makefile', line 4)
 DEPENDS = ${OBJECTS:.o=.d}
 # environment
@@ -89,12 +89,15 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 CONDA_DEFAULT_ENV = base
 # environment
 XPC_FLAGS = 0x0
+# environment
+COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
+ 
 # default
 MAKECMDGOALS := all
 # environment
-SHLVL = 1
+SHLVL = 2
 # makefile (from `Makefile', line 5)
 EXEC = display
 # default
@@ -109,6 +112,8 @@ USER = vbector
 CONDA_SHLVL = 1
 # default
 MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
+# environment
+TERM_PROGRAM = vscode
 # default
 .VARIABLES := 
 # environment
@@ -126,7 +131,9 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.23878306.23878312
+TERM_PROGRAM_VERSION = 1.69.2
+# environment
+XPC_SERVICE_NAME = 0
 # environment
 HOMEBREW_PREFIX = /opt/homebrew
 # automatic
@@ -158,10 +165,12 @@ _CE_M =
 # environment
 MAKELEVEL := 0
 # makefile (from `Makefile', line 3)
-OBJECTS = start.o DcTims.o gooseNestings.o goToDcTims.o main.o player.o property.o templatedesign.o randomUint.o ownable.o subject.o mapclass.o gym.o rez.o grid.o errorclass.o
- 
+OBJECTS = roll2die.o start.o DcTims.o gooseNestings.o goToDcTims.o main.o player.o property.o templatedesign.o randomUint.o ownable.o subject.o mapclass.o gym.o rez.o grid.o errorclass.o
 # environment
 CONDA_PREFIX = /Users/vbector/opt/anaconda3
+# environment
+ 
+TERM = xterm-256color
 # environment
 VSCODE_PID = 5211
 # environment
@@ -169,7 +178,7 @@ _CE_CONDA =
 # environment
 LANG = C
 # variable set hash-table stats:
-# Load=76/1024=7%, Rehash=0, Collisions=2/129=2%
+# Load=80/1024=8%, Rehash=0, Collisions=2/141=1%
 
 # Pattern-specific Variable Values
 
@@ -177,9 +186,9 @@ LANG = C
 
 # Directories
 
-# . (device 16777233, inode 23746654): 86 files, no impossibilities.
+# . (device 16777233, inode 23746654): 95 files, no impossibilities.
 
-# 86 files, no impossibilities in 1 directories.
+# 95 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -191,7 +200,7 @@ LANG = C
 start.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-23 22:22:38
+#  Last modified 2022-07-23 23:02:12
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -201,7 +210,7 @@ start.d:
 templatedesign.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-23 22:22:40
+#  Last modified 2022-07-23 23:02:15
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -214,6 +223,12 @@ DcTims.o: DcTims.cc DcTims.h property.h errorclass.h
 
 # Not a target:
 ownable.cc:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+roll2die.h:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -237,7 +252,7 @@ all:
 property.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-23 22:22:40
+#  Last modified 2022-07-23 23:02:14
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -249,8 +264,7 @@ player.cc:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-errorclass.o:
+errorclass.o: errorclass.cc errorclass.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -260,8 +274,7 @@ gooseNestings.o: gooseNestings.cc gooseNestings.h property.h errorclass.h
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-grid.o:
+grid.o: grid.cc grid.h player.h property.h ownable.h state.h info.h subject.h observer.h errorclass.h roll2die.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -278,6 +291,12 @@ DcTims.cc:
 #  File has not been updated.
 
 # Not a target:
+rez.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 randomUint.h:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -287,7 +306,7 @@ randomUint.h:
 goToDcTims.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-23 22:22:39
+#  Last modified 2022-07-23 23:02:13
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -306,6 +325,12 @@ gooseNestings.cc:
 #  File has not been updated.
 
 # Not a target:
+grid.cc:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 mapclass.cc:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -314,7 +339,7 @@ mapclass.cc:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-23 22:22:18
+#  Last modified 2022-07-23 23:02:39
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -326,26 +351,30 @@ start.o: start.cc start.h property.h player.h
 #  File has not been updated.
 
 # Not a target:
-subject.h:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+roll2die.d:
+#  A default, MAKEFILES, or -include/sinclude makefile.
+#  Implicit rule search has been done.
+#  Last modified 2022-07-23 23:02:12
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 templatedesign.o: templatedesign.cc templatedesign.h property.h player.h randomUint.h nHallRandom.h slcRandom.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
 #  File has not been updated.
 
 # Not a target:
 gym.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-23 22:22:42
+#  Last modified 2022-07-23 23:02:16
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
- 
 
 property.o: property.cc player.h property.h
 #  Implicit rule search has not been done.
@@ -356,9 +385,9 @@ property.o: property.cc player.h property.h
 rez.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-07-23 23:02:17
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
@@ -366,7 +395,7 @@ rez.d:
 randomUint.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-23 22:22:41
+#  Last modified 2022-07-23 23:02:15
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -408,6 +437,12 @@ player.h:
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+errorclass.cc:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 goToDcTims.o: goToDcTims.cc goToDcTims.h property.h player.h errorclass.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -417,7 +452,7 @@ goToDcTims.o: goToDcTims.cc goToDcTims.h property.h player.h errorclass.h
 subject.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-23 22:22:41
+#  Last modified 2022-07-23 23:02:16
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -427,7 +462,7 @@ subject.d:
 main.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-23 22:22:39
+#  Last modified 2022-07-23 23:02:14
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -447,6 +482,11 @@ nHallRandom.h:
 
 # Not a target:
 goToDcTims.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+roll2die.o: roll2die.cc roll2die.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -496,14 +536,14 @@ mapclass.h:
 ownable.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-23 22:22:41
+#  Last modified 2022-07-23 23:02:15
 #  File has been updated.
+ 
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-# Not a target:
-rez.o:
+rez.o: rez.cc rez.h property.h player.h mapclass.h errorclass.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -517,7 +557,7 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 12):
+#  commands to execute (from `Makefile', line 13):
 	rm ${DEPENDS} ${OBJECTS} ${EXEC}
 	
 
@@ -525,7 +565,7 @@ clean:
 player.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-23 22:22:40
+#  Last modified 2022-07-23 23:02:14
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -533,6 +573,12 @@ player.d:
 
 # Not a target:
 slcRandom.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+roll2die.cc:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -547,18 +593,18 @@ gym.cc:
 DcTims.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-23 22:22:38
+#  Last modified 2022-07-23 23:02:13
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-display: start.o DcTims.o gooseNestings.o goToDcTims.o main.o player.o property.o templatedesign.o randomUint.o ownable.o subject.o mapclass.o gym.o rez.o grid.o errorclass.o
+display: roll2die.o start.o DcTims.o gooseNestings.o goToDcTims.o main.o player.o property.o templatedesign.o randomUint.o ownable.o subject.o mapclass.o gym.o rez.o grid.o errorclass.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 8):
-	${CXX} ${CXXFLAGS} ${OBJECTS} -lncurses -o ${EXEC}
+#  commands to execute (from `Makefile', line 9):
+	${CXX} ${CXXFLAGS} ${OBJECTS} -lncurses -o ${EXEC}	
 	
 
 # Not a target:
@@ -568,7 +614,19 @@ state.h:
 #  File has not been updated.
 
 # Not a target:
+subject.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 start.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+rez.cc:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -605,10 +663,9 @@ property.h:
 errorclass.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
- 
-#  File does not exist.
+#  Last modified 2022-07-23 23:02:17
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
@@ -616,7 +673,7 @@ errorclass.d:
 gooseNestings.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-23 22:22:39
+#  Last modified 2022-07-23 23:02:13
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -626,9 +683,9 @@ gooseNestings.d:
 grid.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-07-23 23:02:17
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
@@ -636,7 +693,7 @@ grid.d:
 mapclass.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-23 22:22:42
+#  Last modified 2022-07-23 23:02:16
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -667,22 +724,23 @@ player.o: player.cc player.h property.h
 # Not a target:
 observer.h:
 #  Implicit rule search has not been done.
+ 
 #  Modification time never checked.
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=70/1024=7%, Rehash=0, Collisions=4/172=2%
+# Load=78/1024=8%, Rehash=0, Collisions=10/203=5%
 # VPATH Search Paths
 
 # No `vpath' search paths.
 
 # No general (`VPATH' variable) search path.
 
-# # of strings in strcache: 17
+# # of strings in strcache: 18
 # # of strcache buffers: 1
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
-# strcache free: total = 3921 / max = 3921 / min = 3921 / avg = 3921
+# strcache free: total = 3910 / max = 3910 / min = 3910 / avg = 3910
 
-# Finished Make data base on Sat Jul 23 22:22:45 2022
+# Finished Make data base on Sat Jul 23 23:02:51 2022
 
  
