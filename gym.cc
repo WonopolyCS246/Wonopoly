@@ -3,7 +3,7 @@
 #include "mapclass.h"
 #include "errorclass.h"
 
-Gym::Gym(Player *owner, std::string name, int position, bool mortaged) : owner{owner}, mortgaged{mortgaged}, cost{150}, name{name}, position{position}
+Gym::Gym(Player *owner, std::string name, int position, bool mortgaged) : owner{owner}, mortgaged{mortgaged}, cost{150}, name{name}, position{position}
 {
 } 
 
@@ -88,4 +88,8 @@ void Gym::unMortgaged(Player *p) {
 
 void Gym::setOtherGym(std::vector<Property *> otherGym) {
     this->otherGym = otherGym;
+}
+
+void Gym::setOwner(Player *owner) {
+    this->owner = owner;
 }

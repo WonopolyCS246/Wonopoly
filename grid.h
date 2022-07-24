@@ -26,9 +26,7 @@ public:
   Grid();
   Grid(std::ifstream infile);
   ~Grid();
-  void roll();
   void play();
-  void nextTurn();
   void trade(Player *p, Player *p2, int amount, Property *pt);
   void trade(Player *p, Player *p2, Property *pt1, Property *pt2);
   void trade(Player *p, Player *p2, Property *pt1, int amount);
@@ -36,22 +34,14 @@ public:
   int raise(Player *p, int amount); // player p raise amount of money.
 
   int raisetution(Player *p, int amount);
-
-  void buyProperty(Property *p);
-  void sellProperty(Property *p);
-  void mortgage(Property *p);
-  void unmortgage(Property *p);
-  bool bankrupt();
-  int assets();
-  int all();
   // Explicitly defining the type of auction
   void auctionProperty(Property *p, Player *p1);
   // auctionPlayer() calls auctionProperty() on all properties owned by player
   void auctionPlayer(Player *p);
-  void transfer(Player *p1, Player *p2);
+  // void transfer(Player *p1, Player *p2);
   int handlePre(Player *p);
   void handleRoll(Player *p);
-  void handlePost(Player *p);
+  int handlePost(Player *p);
   void handlepassthorugh(int sum, Player *p);
   void newownable(Player *pl, Property *p);
   void handletims(Player *p);
@@ -59,6 +49,10 @@ public:
   void handlecard(Property *p, Player *p1);
   Player *getPlayer(std::string s);
   Property *getProperty(std::string s);
+
+  void handletution(Player *p1);
+  void handleCoop(Player *p1);
+
   // transfers all assets of player p1 to player p2
 };
 

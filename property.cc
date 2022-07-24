@@ -62,3 +62,16 @@ void Property::setMortgaged(bool mortgaged)
 {
 }
 
+int Property::getIncrementcost()
+{
+    return 0;
+}
+
+void Property::setOwner(Player *owner) {
+
+}
+
+void Property::setIncrement(int x) {
+
+}
+

@@ -1,12 +1,10 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory `/Users/vbector/Wonopoly'
-g++ -std=c++14 -g -Wall -MMD    -c -o ownable.o ownable.cc
-g++ -std=c++14 -g -Wall -MMD    -c -o subject.o subject.cc
-g++ -std=c++14 -g -Wall -MMD    -c -o mapclass.o mapclass.cc
+g++ -std=c++14 -g -Wall -MMD    -c -o gym.o gym.cc
 g++ -std=c++14 -g -Wall -MMD    -c -o rez.o rez.cc
-g++ -std=c++14 -g -Wall -MMD    -c -o grid.o grid.cc
  
+g++ -std=c++14 -g -Wall -MMD    -c -o grid.o grid.cc
+g++ -std=c++14 -g -Wall -MMD    -c -o errorclass.o errorclass.cc
+g++ -std=c++14 -g -Wall -MMD  start.o DcTims.o gooseNestings.o goToDcTims.o main.o player.o property.o templatedesign.o randomUint.o ownable.o subject.o mapclass.o gym.o rez.o grid.o errorclass.o -lncurses -o display
 make: Leaving directory `/Users/vbector/Wonopoly'
  
-make: *** No rule to make target `errorclass.o', needed by `display'.
-

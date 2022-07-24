@@ -41,6 +41,11 @@ public:
     // void addincrement(Player *p) override;    // this is to add increments to property.
 
     void setMortgaged(bool mortgaged) override;
+
+    int getIncrementcost() override; 
+
+    void setOwner(Player *owner) override;
+    void setIncrement(int x) override;
 };
 
 #endif

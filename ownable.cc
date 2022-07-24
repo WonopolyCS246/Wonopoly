@@ -7,16 +7,22 @@ MapClass a{};
 
 using namespace std;
 
-//  Ownable(Player *owner, std::string name, int position, Faculty faculty, int increments);
-//     void notify(Subject &whoFrom) override;
-//     void setState(State newS);
-//     Info getInfo() override;
-//     void addOwner(Player *p) override;
-//     bool isNewOwnable() override;
-//     void applyRule(Player *p) override;
-//     Player *getOwner() override;
-//     void notify(Subject &whoFrom) override;
-// void setMortgaged(bool value)
+// Player *owner;    // stores the player who owns the property
+//     bool mortgaged;   // stores whether the property is mortgaged or not
+//     bool monopoly;    // stores whether the property is part of a monopoly or not
+//     int cost;         // stores the cost of the property
+//     std::string name; // stores the name of the property
+//     int increments;   // stores the number of increments the property has been owned for
+//     int position;
+//     Faculty faculty;
+
+// Player *owner;       //
+//         StateType type;      // For Monopoly
+//         Direction direction; // Relative Position of the piece
+//         Faculty faculty;     // Faculty of the piece
+//         bool monopoly;  
+
+
 
 Ownable::Ownable(Player *owner, std::string name, int position, Faculty faculty, int increments, bool mortaged) : Subject(State{nullptr, StateType::EstMono, Direction::Left, Faculty::Arts1, false}),
                                                                                                                   info{Info{owner, mortaged, false, a.getprice(name), name, increments, position, faculty}}
@@ -109,15 +115,24 @@ void Ownable::applyRule(Player *p)
     }
     else
     {
-        if (p->getAssets() >= a.getrent(info.name, info.increments))
+        int rent; 
+
+        if(info.monopoly){
+            rent = 2*  a.getrent(info.name, info.increments); 
+        }
+        else{
+            rent = a.getrent(info.name, info.increments); 
+        }
+
+        if (p->getAssets() >= rent)
         {
-            p->setAssets(p->getAssets() - a.getrent(info.name, info.increments));
-            info.owner->setAssets(info.owner->getAssets() + a.getrent(info.name, info.increments));
+            p->setAssets(p->getAssets() - rent);
+            info.owner->setAssets(info.owner->getAssets() + rent);
             return;
         }
         else
         {
-            throw NoRent(a.getrent(info.name, info.increments));
+            throw NoRent(rent);
         }
     }
 }
@@ -233,6 +248,11 @@ void Ownable::addincrement(Player *p)
     }
 }
 
+int Ownable::getIncrementcost()
+{
+    return info.increments*(a.getIncrementcost(info.name));
+}
+
 void Ownable::removeincrement(Player *p)
 {
     // yet to add money to the player's balance.
@@ -315,6 +335,15 @@ void Ownable::setMortgaged(bool b)
 {
     info.mortgaged = b;
 }
+
+void Ownable::setOwner(Player *owner) {
+    info.owner = owner;
+}
+
+void Ownable::setIncrement(int x) {
+    info.increments = x;
+}
+
 // struct Info
 // {
 //     Player *owner;    // stores the player who owns the property

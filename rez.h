@@ -26,6 +26,7 @@ public:
     void setMortgaged(Player *p); // this is to set the mortgaged status of the property
     void unMortgaged(Player *p);  // // this is to unmortage the property
     void setOtherRez(std::vector<Property *> otherRez);
+    void setOwner(Player *owner) override;
 };
 
 #endif 

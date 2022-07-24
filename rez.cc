@@ -129,3 +129,7 @@ void Rez::setOtherRez(std::vector<Property *> otherRez)
 {
     this->otherRez = otherRez;
 }
+
+void Rez::setOwner(Player *owner) {
+    this->owner = owner;
+}

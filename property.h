@@ -27,6 +27,9 @@ public:
   virtual int getPrice();
 
   virtual std::string getName();
+  virtual int getIncrementcost(); 
+  virtual void setOwner(Player *owner);
+  virtual void setIncrement(int x);
 };
 
 #endif

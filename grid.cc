@@ -84,40 +84,68 @@ Grid::~Grid()
 {
 }
 
-void Grid::roll()
-{
-}
 
-void Grid::nextTurn()
-{
-}
-
-void Grid::sellProperty(Property *p)
-{
-}
-
-void Grid::mortgage(Property *p)
-{
-}
-
-void Grid::unmortgage(Property *p)
-{
-}
-
-bool Grid::bankrupt()
-{
-}
-
-int Grid::assets()
-{
-}
-
-int Grid::all()
-{
-}
 // Explicitly defining the type of auction
 
 // auctionPlayer() calls auctionProperty() on all properties owned by player
+
+void Grid::play()
+{
+
+    int count = 0;
+    while (true)
+    {
+
+        for (int i = 0; i < players.size(); i++)
+        {
+            if (!players[i]->getBankruptcy())
+            {
+                count++;
+            }
+        }
+
+        if (count == 1)
+        {
+            for (int i = 0; i < players.size(); i++)
+            {
+                if (!players[i]->getBankruptcy())
+                {
+                    cout << "Player " << players[i]->getName() << " wins!" << endl;
+                    break;
+                }
+            }
+        }
+
+        count = 0;
+
+        for (int i = 0; i < players.size(); ++i)
+        {
+            if (!players[i]->getBankruptcy())
+            {
+                int a = handlePre(players[i]);
+                if (a == 2)
+                {
+                    // code to save
+                }
+                else if (a == 0)
+                {
+                    break;
+                }
+
+                else
+                {
+                    handleRoll(players[i]);
+
+                    if (handlePost(players[i]) == 2)
+                    {
+                        // code to save
+                    }
+                }
+            }
+        }
+    }
+}
+
 void Grid::auctionPlayer(Player *p)
 {
     p->setBankruptcy(true);
@@ -126,14 +154,6 @@ void Grid::auctionPlayer(Player *p)
     {
         auctionProperty(p->getProp()[i], p);
     }
-}
-
-void Grid::transfer(Player *p1, Player *p2)
-{
-}
-
-void print()
-{
 }
 
 int Grid::handlePre(Player *p)
@@ -199,13 +219,30 @@ int Grid::handlePre(Player *p)
         ss >> g;
         Property *pt = getProperty(g);
 
-        try
+        ss >> g;
+
+        if (g == "buy")
         {
-            pt->addincrement(p);
+            try
+            {
+                pt->addincrement(p);
+            }
+            catch (...)
+            {
+                cout << "Illegal Move" << endl;
+            }
         }
-        catch (...)
+
+        else if (g == "sell")
         {
-            cout << "Illegal Move" << endl;
+            try
+            {
+                pt->removeincrement(p);
+            }
+            catch (...)
+            {
+                cout << "Illegal Move" << endl;
+            }
         }
     }
 
@@ -222,7 +259,14 @@ int Grid::handlePre(Player *p)
     {
         return 0;
     }
+
+    else if (s == "save")
+    {
+        return 2;
+    }
 }
+
+
 
 void Grid::handleRoll(Player *p)
 {
@@ -240,8 +284,110 @@ void Grid::handleRoll(Player *p)
     }
 }
 
-void Grid::handlePost(Player *p)
+int Grid::handlePost(Player *p)
 {
+    string s;
+
+    cout << "What would you like to do?" << endl;
+
+    getline(cin, s);
+    stringstream ss{s};
+
+    string g;
+
+    ss >> g;
+
+    if (s == "trade")
+    {
+        HandleTrade(p, ss);
+    }
+    else if (s == "bankrupt")
+    {
+        cout << "No you're not bankrupt" << endl;
+    }
+    else if (s == "all")
+    {
+        for (int i = 0; i < players.size(); ++i)
+        {
+            cout << "Player " << players[i]->getName() << " has $" << players[i]->getAssets() << endl;
+
+            for (int j = 0; j < players[i]->getProp().size(); ++j)
+            {
+                cout << "Player " << players[i]->getName() << " has " << players[i]->getProp()[j]->getName() << endl;
+            }
+        }
+    }
+
+    else if (s == "assets")
+    {
+        cout << "You have $" << p->getAssets() << endl;
+
+        for (int j = 0; j < p->getProp().size(); ++j)
+        {
+            cout << "You have " << p->getProp()[j]->getName() << endl;
+        }
+    }
+    else if (s == "mortgage")
+    {
+        ss >> g;
+        Property *pt = getProperty(g);
+
+        try
+        {
+            pt->setMortgaged(p);
+        }
+        catch (...)
+        {
+            cout << "Illegal Move" << endl;
+        }
+    }
+
+    else if (s == "improve")
+    {
+        ss >> g;
+        Property *pt = getProperty(g);
+
+        ss >> g;
+
+        if (g == "buy")
+        {
+            try
+            {
+                pt->addincrement(p);
+            }
+            catch (...)
+            {
+                cout << "Illegal Move" << endl;
+            }
+        }
+
+        else if (g == "sell")
+        {
+            try
+            {
+                pt->removeincrement(p);
+            }
+            catch (...)
+            {
+                cout << "Illegal Move" << endl;
+            }
+        }
+    }
+
+    else if (s == "unmortgage")
+    {
+        ss >> g;
+    }
+
+    else if (s == "pass")
+    {
+        return 1;
+    }
+
+    else if (s == "save")
+    {
+        return 2;
+    }
 }
 
 Property *getProperty(string name)
@@ -861,7 +1007,7 @@ void Grid::handletims(Player *p)
     cout << "You have been sent to DC Tims" << endl;
     cout << "You have " << p->getTurnsAtTims() << " turns in DC tims" << endl;
 
-    if (p->getAtTims() >= 3)
+    if (p->getTurnsAtTims() >= 3)
     {
         string s;
 
@@ -991,6 +1137,177 @@ void Grid::handletims(Player *p)
     }
 }
 
+void Grid::handleCoop(Player *p1)
+{
+    if (p1->getAssets() >= 150)
+    {
+        cout << "Co-op tution detected" << endl;
+        p1->setAssets(p1->getAssets() - 150);
+    }
+    else
+    {
+        if (raise(p1, 150))
+        {
+            cout << "Co-op tution detected" << endl;
+            p1->setAssets(p1->getAssets() - 150);
+        }
+        else
+        {
+            p1->setBankruptcy(true);
+            auctionPlayer(p1);
+        }
+    }
+}
+
+int calculateten(Player *p)
+{
+    int sum = 0;
+
+    for (int i = 0; i < p->getProp().size(); ++i)
+    {
+        sum = sum + p->getProp()[i]->getPrice();
+        sum = sum + p->getProp()[i]->getIncrementcost(); 
+    }
+
+    sum = sum+p->getAssets(); 
+
+    return sum*(0.1);
+}
+
+void Grid::handletution(Player *p1)
+{
+    cout << "You have landed on the tution " << endl;
+    cout << " You can either pay $300 or 10"
+         << "%"
+         << "of your savings" << endl;
+
+    while (true)
+    {
+        cout << "Write Pay to pay $300 or write 10"
+             << "%"
+             << " to use 10%" << endl;
+        string s;
+        getline(cin, s);
+        stringstream ss{s};
+
+        ss >> s;
+        if (s == "pay")
+        {
+            if (raisetution(p1, 300))
+            {
+                cout << "You have paid $300" << endl;
+                p1->setAssets(p1->getAssets() - 300);
+            }
+            else
+            {
+                p1->setBankruptcy(true);
+                auctionPlayer(p1);
+            }
+        }
+        else if (s == "10%")
+        {
+            int x = calculateten(p1);
+
+            if(p1->getAssets()>=x){
+                cout << "10" <<"%" << " amount paid" << x << endl; 
+                p1->setAssets(p1->getAssets()-x); 
+            }
+            else{
+                if(raisetution(p1, x)){
+                    p1->setAssets(p1->getAssets()-x); 
+                }
+                else{
+                    p1->setBankruptcy(true);
+                    auctionPlayer(p1);
+                }
+            }
+
+        }
+    }
+}
+
+// void Grid::handlecard(Property *p, Player *p1)
+// {
+//     if (p->isNewOwnable())
+//     {
+//         newownable(p1, p);
+//         return;
+//     }
+//     else
+//     {
+//         try
+//         {
+//             p->applyRule(p1);
+//         }
+//         catch (NotMortgage m)
+//         {
+//             if (p1->getAssets() > m.getAmount())
+//             {
+//                 cout << "You did not unmortage this property" << endl;
+//                 cout << "But since you landed here again amount of $" << m.getAmount() << " has been removed from your assets" << endl;
+//                 p1->setAssets(p1->getAssets() - m.getAmount());
+//                 p->setMortgaged(false);
+//                 return;
+//             }
+//             else
+//             {
+//                 cout << "You don't currently have enough money to unmortgage this property" << endl;
+//                 cout << "But since you landed here again amount of $" << m.getAmount() << " has been removed from your assets" << endl;
+//                 if (raise(p1, m.getAmount()))
+//                 {
+//                     p1->setAssets(p1->getAssets() - m.getAmount());
+//                     p->setMortgaged(false);
+//                     return;
+//                 }
+//                 else
+//                 {
+//                     cout << "You have failed to unmortgage this property" << endl;
+//                     p1->setBankruptcy(true);
+//                     auctionPlayer(p1);
+//                 }
+//             }
+//         }
+//         catch (NoRent n)
+//         {
+//             cout << "You landed on a property for which you don't have the balance to pay rent" << endl;
+//             cout << "But since you landed here you need to pay $" << n.getRent() << " " << endl;
+
+//             if (raise(p1, n.getRent()))
+//             {
+//                 p1->setAssets(p1->getAssets() - n.getRent());
+//                 p->getOwner()->setAssets(n.getRent());
+//                 return;
+//             }
+//             else
+//             {
+//                 cout << "You have failed to pay rent" << endl;
+//                 p1->setBankruptcy(true);
+//                 p1->transfer(p->getOwner());
+//             }
+//         }
+//         catch (NoTution t)
+//         {
+//             cout << "You have landed on tution which you didn't have the balance to pay" << endl;
+//             cout << "But since you landed here you need to pay $" << t.getAmount() << " " << endl;
+
+//             if (raisetution(p1, t.getAmount()))
+//             {
+//                 p1->setAssets(p1->getAssets() - t.getAmount());
+//                 return;
+//             }
+//             else
+//             {
+//                 p1->setBankruptcy(true);
+//                 auctionPlayer(p1);
+//             }
+//         }
+//         catch (...)
+//         {
+//             cout << "Illegal move " << endl;
+//         }
+//     }
+// }
+
 void Grid::handlecard(Property *p, Player *p1)
 {
     if (p->isNewOwnable())
@@ -1050,21 +1367,13 @@ void Grid::handlecard(Property *p, Player *p1)
                 p1->transfer(p->getOwner());
             }
         }
-        catch (NoTution t)
+        catch (Tuition t)
         {
-            cout << "You have landed on tution which you didn't have the balance to pay" << endl;
-            cout << "But since you landed here you need to pay $" << t.getAmount() << " " << endl;
-
-            if (raisetution(p1, t.getAmount()))
-            {
-                p1->setAssets(p1->getAssets() - t.getAmount());
-                return;
-            }
-            else
-            {
-                p1->setBankruptcy(true);
-                auctionPlayer(p1);
-            }
+            handletution(p1);
+        }
+        catch (CoOp t)
+        {
+            handleCoop(p1);
         }
         catch (...)
         {
@@ -1072,6 +1381,7 @@ void Grid::handlecard(Property *p, Player *p1)
         }
     }
 }
+
 
 int Grid::raisetution(Player *p, int amount)
 {

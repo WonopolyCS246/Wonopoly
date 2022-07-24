@@ -18,7 +18,7 @@ class Gym : public Property
     int position;
 
 public:
-    Gym(Player *owner, std::string name, int position, bool mortaged);
+    Gym(Player *owner, std::string name, int position, bool mortgaged);
     void addOwner(Player *p);
     bool isNewOwnable() override;
     void applyRule(Player *p) override; // is called assuming that this gym is owned either by the player who landed on it or some other player
@@ -26,6 +26,7 @@ public:
     void setMortgaged(Player *p); // this is to set the mortgaged status of the property
     void unMortgaged(Player *p);  // // this is to unmortage the property
     void setOtherGym(std::vector<Property *> otherGym);
+    void setOwner(Player *owner) override;
 };
 
-#endif 
+#endif

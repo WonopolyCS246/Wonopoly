@@ -4,7 +4,7 @@
 
 void DcTims :: addOwner(Player *p){
     // This Should be empty
-    throw IllegalMove();
+    //throw IllegalMove();
 }
 
 bool DcTims :: isNewOwnable(){
