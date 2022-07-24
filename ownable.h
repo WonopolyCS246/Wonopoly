@@ -22,7 +22,7 @@ public:
     std::string getName() override;
     void attach(Property *o) override;
 
-    void addincrement(Player *p); // this is to increment the particular monopolies of the faculty
+    void addincrement(Player *p) override; // this is to increment the particular monopolies of the faculty
 
     Info getInfo() override;
     void addOwner(Player *p) override;

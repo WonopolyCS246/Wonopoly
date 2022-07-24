@@ -1,6 +1,7 @@
 # Wotopoly - The UWaterloo Monopoly
 ---
 Task List
+GET COST NEEDS TO BE MADE
 - [x] player.h (Bector, (mod. Priyanshu) )
 - [x] player.cc (BoilerPlate Ready + mod. Priyanshu)
 - [x] grid.h

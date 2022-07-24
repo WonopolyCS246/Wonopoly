@@ -11,7 +11,7 @@
 //     std::string name;
 //     int position;
 
-Rez::Rez(Player *owner, std::string name, int position, bool mortaged) : owner{owner}, mortgaged{mortgaged}, cost{200}, otherRez{}, name{name}, position{position}
+Rez::Rez(Player *owner, std::string name, int position, bool mortgaged) : owner{owner}, mortgaged{mortgaged}, cost{200}, otherRez{}, name{name}, position{position}
 {
 }
 
@@ -58,7 +58,7 @@ void Rez::applyRule(Player *p)
                 count++;
             }
         }
-        int rent;
+        int rent{};
 
         if (count + 1 == 1)
         {
@@ -72,8 +72,9 @@ void Rez::applyRule(Player *p)
         {
             rent = 100;
         }
-        else if (count + 1 == 4)
+        else 
         {
+            // if (count + 1 == 4)
             rent = 200;
         }
 
@@ -133,11 +134,14 @@ void Rez::unMortgaged(Player *p)
     }
 }
 
-void Rez::setOther(std::vector<Property *> other)
+void Rez::setOther(Property * other)
 {
-    this->otherRez = otherRez;
+    otherRez.emplace_back(other);
 }
 
 void Rez::setOwner(Player *owner) {
     this->owner = owner;
+}
+int Rez::getPosition(){
+    return this->position;
 }

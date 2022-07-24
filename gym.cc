@@ -86,10 +86,14 @@ void Gym::unMortgaged(Player *p) {
     }
 }
 
-void Gym::setOther(std::vector<Property *> other) {
-    this->otherGym = otherGym;
+void Gym::setOther(Property * other) {
+    otherGym.emplace_back(other);
 }
 
 void Gym::setOwner(Player *owner) {
     this->owner = owner;
+}
+
+int Gym::getPosition(){
+    return this->position;
 }

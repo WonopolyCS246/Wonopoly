@@ -44,7 +44,6 @@ public:
     void setTutionPaid(bool tutionPaid);
     void setTurnsAtTims(int turns);
     int getTurnsAtTims();
-
     // forgot to store previous roll sum, so storing that rn.
     int getPrevRoll();
     void setPrevRoll(int roll);

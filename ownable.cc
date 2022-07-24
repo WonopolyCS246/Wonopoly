@@ -38,7 +38,7 @@ void Ownable::notify(Subject &whoFrom)
     auto inf = whoFrom.getInfo();
     auto stat = whoFrom.getState();
 
-    int x = getLen();
+    // int x = getLen();
 
     if (stat.type == StateType::EstMono)
     {

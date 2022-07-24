@@ -30,7 +30,7 @@ public:
   virtual int getIncrementcost(); 
   virtual void setOwner(Player *owner);
   virtual void setIncrement(int x);
-  virtual void setOther(std::vector<Property *> other);
+  virtual void setOther(Property * other);
 };
 
 #endif

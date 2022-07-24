@@ -11,7 +11,7 @@ class templateDesign: public Property {
         unsigned random();
         void addOwner(Player *p) override;
         bool isNewOwnable() override;
-        virtual void applyRule(Player *p) = 0;
+        // void applyRule(Player *p) override;
         Player *getOwner() override;
         //virtual std::string Rule(float compare) = 0;
 };

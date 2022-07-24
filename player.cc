@@ -20,11 +20,18 @@
 Player::Player(std::string name, int assets, int position) : name(name),
                                                             assets(assets), 
                                                             bankruptcy{false}, 
+                                                            tutionPaid(false), 
                                                             position(position), 
                                                             previousPosition{0}, 
                                                             RUTR(0), 
                                                             atTims(false), 
-                                                            tutionPaid(false) {}
+                                                            turnsAtTims(0),
+                                                            prevRoll(0)
+                                                            {}
+
+
+                                                
+                                                            
 
 std::vector<Property *> Player::getProp()
 {

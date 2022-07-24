@@ -266,6 +266,7 @@ int Grid::handlePre(Player *p)
     {
         return 2;
     }
+    return 0;
 }
 
 
@@ -391,6 +392,7 @@ int Grid::handlePost(Player *p)
     {
         return 2;
     }
+    return 0;
 }
 
 Property *getProperty(string name)

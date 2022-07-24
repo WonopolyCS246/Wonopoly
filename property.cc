@@ -70,7 +70,7 @@ void Property::setIncrement(int x) {
 
 }
 
-void Property::setOther(std::vector<Property *> other){
+void Property::setOther(Property * other){
     
 }
 
