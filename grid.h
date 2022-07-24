@@ -77,7 +77,6 @@ class Grid
   std::unordered_map<std::string, char> characters;
 
   void attachObservers();
-  bool inList(std::string s);
   void playerMap();
   void characterMapInit(); // initializes the Player to character map
 

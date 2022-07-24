@@ -8,14 +8,6 @@
 #include "errorclass.h"
 using namespace std;
 
-bool Grid::inList(string s) {
-    if (s == "Goose" || s == "GRT Bus" || s == "Tim Hortons Doughnut" || s == "Professor" || 
-        s == "Student" || s == "Money" || s == "Laptop" || s == "Pink Tie") {
-        return true;
-    }
-    return false;
-}
-
 void Grid::playerMap() {
     // now, time to create the names map that maps player names to player ptrs
     for(int a=0; a<numPlayers; a++) {
@@ -126,11 +118,8 @@ Grid::Grid() {
     cout << "Pink tie - T" << endl;
     for(int a=0; a<numPlayers; a++) {
         cout << "Enter Player" << (a+1) << "'s name:" << endl;
-        cout << "You will continue to be prompted until you enter a name from above." << endl;
         string name;
-        do {
-            cin >> name;
-        } while (!inList(name)); // ensures that the player's name is in the list of characters
+        cin >> name;
         Player *p = new Player{name, 1500, 0};
         players.emplace_back(p);
         disp.emplace_back(characters[name]);
