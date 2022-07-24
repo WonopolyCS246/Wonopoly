@@ -92,18 +92,6 @@ void Grid::nextTurn()
 {
 }
 
-void Grid::nextTurn()
-{
-}
-
-Property *Grid::getProperty(string propertyName)
-{
-}
-
-Property *Grid::getProperty(std::string propertyName)
-{
-}
-
 void Grid::sellProperty(Property *p)
 {
 }
@@ -514,7 +502,7 @@ void trade(Player *p, Player *p2, Property *pt1, int amount)
     }
 }
 
-void HandleTrade(Player *p, stringstream &ss)
+void Grid::HandleTrade(Player *p, stringstream &ss)
 {
     string s;
     ss >> s;
@@ -852,7 +840,7 @@ void Grid::newownable(Player *pl, Property *p)
 // I'm making the assumption that 0 is the start position
 
 // previous roll needs to be stored before this function is called.
-void handlepassthorugh(int sum, Player *p)
+void Grid::handlepassthorugh(int sum, Player *p)
 {
     if ((p->getPosition() + sum) % 40 < p->getPosition())
     {
@@ -1222,4 +1210,12 @@ int Grid::raisetution(Player *p, int amount)
             break;
         }
     }
+}
+
+Player* Grid::getPlayer(std::string s) {
+    return nullptr;
+}
+
+Property* Grid::getProperty(std::string s) {
+    return nullptr;
 }

@@ -136,7 +136,7 @@ void Ownable::setMortgaged(Player *p)
 {
     if (p != info.owner || info.mortgaged)
     {
-        throw NotOwner();
+        throw IllegalMove();
     }
     else
     {
@@ -155,7 +155,7 @@ void Ownable::unMortgaged(Player *p)
 {
     if (p != info.owner)
     {
-        throw NotOwner();
+        throw IllegalMove();
     }
     else
     {
@@ -176,7 +176,7 @@ void Ownable::addincrement(Player *p)
     // yet to deduct money from the player's balance.
     if (info.owner != p)
     {
-        throw NotOwner();
+        throw IllegalMove();
     }
     else
     {
@@ -238,7 +238,7 @@ void Ownable::removeincrement(Player *p)
     // yet to add money to the player's balance.
     if (info.owner != p)
     {
-        throw NotOwner();
+        throw IllegalMove();
     }
     else
     {

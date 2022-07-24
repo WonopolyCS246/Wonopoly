@@ -12,7 +12,7 @@ class Rez : public Property
 {
     Player *owner; // pointer to the owner of the property
     bool mortgaged;
-    bool cost;
+    int cost;
     std::vector<Property *> otherRez; // this needs to be set later individually.
     std::string name;
     int position;

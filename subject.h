@@ -21,6 +21,7 @@
 // DO NOT MODIFY THIS FILE!
 
 class Observer;
+class Ownable;
 struct Info;    // forward declaration
 class Property; // forward declaration
 

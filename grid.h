@@ -23,9 +23,11 @@ class Grid
   Player *info(std::ifstream &file, int *impr);
 
 public:
+  Grid();
   Grid(std::ifstream infile);
   ~Grid();
   void roll();
+  void play();
   void nextTurn();
   void trade(Player *p, Player *p2, int amount, Property *pt);
   void trade(Player *p, Player *p2, Property *pt1, Property *pt2);
@@ -35,7 +37,6 @@ public:
 
   int raisetution(Player *p, int amount);
 
-  Property *getProperty(std::string propertyName);
   void buyProperty(Property *p);
   void sellProperty(Property *p);
   void mortgage(Property *p);
@@ -51,10 +52,13 @@ public:
   int handlePre(Player *p);
   void handleRoll(Player *p);
   void handlePost(Player *p);
+  void handlepassthorugh(int sum, Player *p);
   void newownable(Player *pl, Property *p);
   void handletims(Player *p);
-
+  void HandleTrade(Player *p, std::stringstream &ss);
   void handlecard(Property *p, Player *p1);
+  Player *getPlayer(std::string s);
+  Property *getProperty(std::string s);
   // transfers all assets of player p1 to player p2
 };
 

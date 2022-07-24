@@ -8,6 +8,7 @@
 #include "info.h"
 #include "subject.h"
 #include "observer.h"
+#include "errorclass.h"
 
 class Player; // forward declaration
 class Ownable : public Property, public Subject, public Observer
@@ -37,7 +38,7 @@ public:
     void unMortgaged(Player *p) override; // // this is to unmortage the property
 
     void removeincrement(Player *p) override; // this removes just one increment of the monopoly
-    void addincrement(Player *p) override;    // this is to add increments to property.
+    // void addincrement(Player *p) override;    // this is to add increments to property.
 
     void setMortgaged(bool mortgaged) override;
 };
