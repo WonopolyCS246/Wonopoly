@@ -17,7 +17,14 @@
 
 
 
-Player::Player(std::string name, int assets, int position) : name(name), assets(assets), bankruptcy{false}, position(position), previousPosition{0}, RUTR(0), atTims(false), tutionPaid(false) {}
+Player::Player(std::string name, int assets, int position) : name(name),
+                                                            assets(assets), 
+                                                            bankruptcy{false}, 
+                                                            position(position), 
+                                                            previousPosition{0}, 
+                                                            RUTR(0), 
+                                                            atTims(false), 
+                                                            tutionPaid(false) {}
 
 std::vector<Property *> Player::getProp()
 {
