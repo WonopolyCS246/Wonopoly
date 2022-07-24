@@ -9,8 +9,10 @@ using namespace std;
 
 int main(int argc, char **argv){
     bool chk = false;
-    if (argc == 1) {
-        
+    if (argc == 1) { // ./monopoly
+        cout << "Welcome to Watopoly!" << endl;
+        Grid g;
+        g.play();
     } else if (argc == 2) { // ./monopoly -testing
         istringstream ss{argv[1]};
         string s;
