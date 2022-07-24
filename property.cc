@@ -81,3 +81,7 @@ void Property::setPosition(int Position){
     this->position = Position;
 }
 
+
+int Property::getIncrements(){
+    return 0; 
+}

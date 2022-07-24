@@ -58,10 +58,12 @@ void display :: textdisplay(std::vector<Player *> Player_Ptrs, std::vector<char>
     }
     for (int i = 0 ; i < Cards.size();++i) {
         if((m[Cards[i]->getName()].Col !=0)&&(Cards[i]->getOwner() != nullptr)){
+            /*
             for(int j = 0; j < Cards[i]->getImprovemnet(); ++j){
                 PrintHeader temp{'I',{m[Cards[i]->getName()].Ln-4,m[Cards[i]->getName()].Col + j}};
                 Placement.emplace_back(temp);
             }
+            */
             for (int j = 0 ; j < Player_Ptrs.size();++j) {
                 if(Player_Ptrs[j]==Cards[i]->getOwner()){
                     PrintHeader temp{Player_Dis[j],{m[Cards[i]->getName()].Ln-4,m[Cards[i]->getName()].Col + 7}};

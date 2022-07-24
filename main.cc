@@ -61,7 +61,7 @@ int main(int argc, char **argv){
         }
     } 
     if (!chk) {
-        cout << "Format: ./monopoly -load file -testing" << endl;
+        cout << "Format: ./watopoly -load file -testing" << endl;
         cout << "You can omit either -load file and/or -testing" << endl;
         return 1;
     }

@@ -1,8 +1,8 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory `/Users/vbector/Wonopoly'
-g++ -std=c++14 -g -Wall -MMD    -c -o CoOpfee.o CoOpfee.cc
+g++ -std=c++14 -g -Wall -MMD    -c -o main.o main.cc
  
-g++ -std=c++14 -g -Wall -MMD    -c -o tuition.o tuition.cc
-g++ -std=c++14 -g -Wall -MMD  roll2die.o start.o DcTims.o gooseNestings.o goToDcTims.o main.o player.o property.o templatedesign.o randomUint.o ownable.o subject.o mapclass.o gym.o rez.o grid.o errorclass.o CoOpfee.o tuition.o  -lncurses -o watopoly	
+g++ -std=c++14 -g -Wall -MMD    -c -o display.o display.cc
+g++ -std=c++14 -g -Wall -MMD  roll2die.o start.o DcTims.o gooseNestings.o goToDcTims.o main.o player.o property.o templatedesign.o randomUint.o ownable.o subject.o mapclass.o gym.o rez.o grid.o errorclass.o CoOpfee.o tuition.o display.o  -lncurses -o watopoly	
 make: Leaving directory `/Users/vbector/Wonopoly'
  
