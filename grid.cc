@@ -239,9 +239,12 @@ void Grid::play()
                 
                 
                 int a = handlePre(players[i]);
+                cout << a << endl;
+                 
                 if (a == 2)
                 {
                     // code to save
+                    return; 
                 }
                 else if (a == 0)
                 {
@@ -250,10 +253,19 @@ void Grid::play()
 
                 else
                 {
+                    cout << "here " << endl;
+                    cout << "Now entering roll" << endl;
                     handleRoll(players[i]);
+                    cout << "Roll conducted" << endl;
 
-                    if (handlePost(players[i]) == 2)
+                    
+                    int x = handlePost(players[i]); 
+
+                    cout << x << endl;
+                    cout << "Handle post returned " << x << endl;
+                    if (x == 2)
                     {
+                        return; 
                         // code to save
                     }
                 }
@@ -274,26 +286,24 @@ void Grid::auctionPlayer(Player *p)
 
 int Grid::handlePre(Player *p)
 {
-    string s;
-
     cout << "What would you like to do?" << endl;
-
-    getline(cin, s);
+    cout << p->getName() << endl;
+    string s;
+    // getline(cin, s);
     stringstream ss{s};
 
     string g;
-
-    ss >> g;
-
-    if (s == "trade")
+    cin >> g;
+    cout << "Printing: " << g << "Done" << endl;
+    if (g == "trade")
     {
-        HandleTrade(p, ss);
+        //HandleTrade(p, ss);
     }
-    else if (s == "bankrupt")
+    else if (g == "bankrupt")
     {
         cout << "No you're not bankrupt" << endl;
     }
-    else if (s == "all")
+    else if (g == "all")
     {
         for (int i = 0; i < players.size(); ++i)
         {
@@ -306,7 +316,7 @@ int Grid::handlePre(Player *p)
         }
     }
 
-    else if (s == "assets")
+    else if (g == "assets")
     {
         cout << "You have $" << p->getAssets() << endl;
 
@@ -315,7 +325,7 @@ int Grid::handlePre(Player *p)
             cout << "You have " << p->getProp()[j]->getName() << endl;
         }
     }
-    else if (s == "mortgage")
+    else if (g == "mortgage")
     {
         ss >> g;
         Property *pt = getProperty(g);
@@ -330,7 +340,7 @@ int Grid::handlePre(Player *p)
         }
     }
 
-    else if (s == "improve")
+    else if (g == "improve")
     {
         ss >> g;
         Property *pt = getProperty(g);
@@ -362,25 +372,30 @@ int Grid::handlePre(Player *p)
         }
     }
 
-    else if (s == "unmortgage")
+    else if (g == "unmortgage")
     {
         ss >> g;
     }
 
-    else if (s == "roll")
+    else if (g == "roll")
     {
+        cout << "Rolling" << endl;
         return 1;
     }
-    else if (s == "pass")
+    else if (g == "pass")
     {
         return 0;
     }
 
-    else if (s == "save")
+    else if (g == "save")
     {
         return 2;
     }
-    return 0;
+
+    else
+    {
+        return 1;
+    }
 }
 
 
@@ -393,10 +408,11 @@ void Grid::handleRoll(Player *p)
     }
     else
     {
-
+        cout  << " Doing a Dice Roll " << endl;
         vector<int> a = roll2die();
         int sum = a[0] + a[1];
         p->setPrevRoll(sum);
+        cout << "You rolled a " << sum << endl;
         handlepassthorugh(sum, p); // handles the passing through of the player
         handlecard(cards[p->getPosition()], p);
     }
@@ -408,22 +424,22 @@ int Grid::handlePost(Player *p)
 
     cout << "What would you like to do?" << endl;
 
-    getline(cin, s);
+    //getline(cin, s);
     stringstream ss{s};
 
     string g;
 
-    ss >> g;
+    cin >> g;
 
-    if (s == "trade")
+    if (g == "trade")
     {
         HandleTrade(p, ss);
     }
-    else if (s == "bankrupt")
+    else if (g == "bankrupt")
     {
         cout << "No you're not bankrupt" << endl;
     }
-    else if (s == "all")
+    else if (g == "all")
     {
         for (int i = 0; i < players.size(); ++i)
         {
@@ -436,7 +452,7 @@ int Grid::handlePost(Player *p)
         }
     }
 
-    else if (s == "assets")
+    else if (g == "assets")
     {
         cout << "You have $" << p->getAssets() << endl;
 
@@ -445,7 +461,7 @@ int Grid::handlePost(Player *p)
             cout << "You have " << p->getProp()[j]->getName() << endl;
         }
     }
-    else if (s == "mortgage")
+    else if (g == "mortgage")
     {
         ss >> g;
         Property *pt = getProperty(g);
@@ -460,7 +476,7 @@ int Grid::handlePost(Player *p)
         }
     }
 
-    else if (s == "improve")
+    else if (g == "improve")
     {
         ss >> g;
         Property *pt = getProperty(g);
@@ -492,17 +508,17 @@ int Grid::handlePost(Player *p)
         }
     }
 
-    else if (s == "unmortgage")
+    else if (g == "unmortgage")
     {
         ss >> g;
     }
 
-    else if (s == "pass")
+    else if (g == "pass")
     {
         return 1;
     }
 
-    else if (s == "save")
+    else if (g == "save")
     {
         return 2;
     }
@@ -588,20 +604,33 @@ void Grid::save(string fname, int index) {
 
 void Grid::auctionProperty(Property *p, Player *p1)
 {
+    cout << "Entering Auction " << endl;
     int amount = p->getPrice(); // amount of money to bid on the property.
+    cout << amount << endl; 
     Player *winner = nullptr;
     std::vector<Player *> participants;
 
     for (int i = 0; i < players.size(); ++i)
     {
+        cout << i << endl;
+        cout << (players[i] != p1 && players[i]->getBankruptcy() == false) << endl;
         if (players[i] != p1 && players[i]->getBankruptcy() == false)
         {
-            participants.push_back(players[i]);
+
+            participants.emplace_back(players[i]);
         }
+    }
+
+    if(participants.size()==1){
+        cout << "Only one player left, no auction" << endl;
+        winner = participants[0];
+        cout << winner->getName() << endl;
+        cout << "error" << endl;
     }
 
     while (participants.size() != 1)
     {
+        cout << "inside while" << endl; 
         for (int i = 0; i < participants.size(); ++i)
         {
             if (participants[i] != winner)
@@ -688,9 +717,10 @@ void Grid::auctionProperty(Property *p, Player *p1)
 
     if (winner->getAssets() >= amount)
     {
+        
         winner->setAssets(winner->getAssets() - amount);
         winner->addProp(p);
-        p->addOwner(winner);
+        //p->addOwner(winner);
         cout << "Property transferred "
              << "to player " << winner->getName() << endl;
     }
@@ -907,10 +937,10 @@ int Grid::raise(Player *p, int amount)
             return 1;
         }
         cout << "Enter valid command to raise money or type bankrupt to declare bankrupt" << endl;
-        getline(cin, s);
+        //getline(cin, s);
         istringstream ss{s};
 
-        ss >> s;
+        cin >> s;
         if (s == "improvement")
         {
             ss >> s;
@@ -1047,16 +1077,16 @@ int Grid::raise(Player *p, int amount)
 // we need to do heavy typecasting.
 void Grid::newownable(Player *pl, Property *p)
 {
-    cout << "You have landed on a new property!" << endl;
-    cout << "Enter (improve property buy) to buy or no to pass:" << endl;
+    cout << "You have landed on a new property!" << p->getName() << " " << endl;
+    cout << "Enter buy to buy or no to pass:" << endl;
 
     while (true)
     {
         string s;
-        getline(cin, s);
+        //getline(cin, s);
         stringstream ss{s};
         string g;
-        ss >> g;
+        cin >> g;
         if (g == "no" || g == "No")
         {
             auctionProperty(p, pl);
@@ -1066,10 +1096,14 @@ void Grid::newownable(Player *pl, Property *p)
         {
             if (pl->getAssets() >= p->getPrice())
             {
+                cout << "Before adding property" << endl;
                 pl->addProp(p);
+                cout << "After adding property" << endl; 
                 pl->setAssets(pl->getAssets() - p->getPrice());
-                p->addOwner(pl);
+                //p->addOwner(pl);
+                // commented addowner for reasons
                 cout << "You have bought " << p->getName() << endl;
+                return; 
             }
             else
             {
@@ -1080,6 +1114,7 @@ void Grid::newownable(Player *pl, Property *p)
                     pl->setAssets(pl->getAssets() - p->getPrice());
                     p->addOwner(pl);
                     cout << "You have bought " << p->getName() << endl;
+                    return; 
                 }
                 else
                 {
@@ -1181,10 +1216,10 @@ void Grid::handletims(Player *p)
         while (true)
         {
             cout << "Write roll to roll dice, Pay to Pay $50 or write RURC to use roll up the rim card" << endl;
-            getline(cin, s);
+            //getline(cin, s);
             stringstream ss{s};
 
-            ss >> s;
+            cin >> s;
 
             if (s == "roll")
             {
@@ -1294,10 +1329,10 @@ void Grid::handletution(Player *p1)
              << "%"
              << " to use 10%" << endl;
         string s;
-        getline(cin, s);
+        //getline(cin, s);
         stringstream ss{s};
 
-        ss >> s;
+        cin >> s;
         if (s == "pay")
         {
             if (raisetution(p1, 300))
@@ -1337,6 +1372,7 @@ void Grid::handlecard(Property *p, Player *p1)
 {
     if (p->isNewOwnable())
     {
+        cout << "You have landed on a new ownable property" << endl;
         newownable(p1, p);
         return;
     }
@@ -1344,13 +1380,14 @@ void Grid::handlecard(Property *p, Player *p1)
     {
         try
         {
+            cout << "Didn't land on a novel property" << endl;
             p->applyRule(p1);
         }
         catch (NotMortgage m)
         {
             if (p1->getAssets() > m.getAmount())
             {
-                cout << "You did not unmortage this property" << endl;
+                cout << "You did not unmortgage this property" << endl;
                 cout << "But since you landed here again amount of $" << m.getAmount() << " has been removed from your assets" << endl;
                 p1->setAssets(p1->getAssets() - m.getAmount());
                 p->setMortgaged(false);
@@ -1421,10 +1458,10 @@ int Grid::raisetution(Player *p, int amount)
             return 1;
         }
         cout << "Enter valid command to raise money or type bankrupt to declare bankrupt" << endl;
-        getline(cin, s);
+        //getline(cin, s);
         istringstream ss{s};
 
-        ss >> s;
+        cin >> s;
         if (s == "improvement")
         {
             ss >> s;

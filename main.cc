@@ -10,6 +10,7 @@ using namespace std;
 int main(int argc, char **argv){
     bool chk = false;
     if (argc == 1) { // ./monopoly
+        chk = true;
         cout << "Welcome to Watopoly!" << endl;
         Grid g;
         g.play();
