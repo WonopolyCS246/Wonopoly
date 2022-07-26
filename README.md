@@ -318,6 +318,9 @@ It was our utmost priority to make our code extendible. This was the reason why 
 
 In the given board, we had atmost 2 more buildings in our Faculty, and that too in our immediate proximity. Thus, by Observer Pattern we were able to overcome both of these restrictions - placement and number. This means that no matter how many buildings we have and irrespective of the location of the buildings on the board - we will be able to check for monopoly and/or if it has improvements (and related restrictions). 
 
+The same can be said for our **display class**; `textdisplay` and `Interface`
+
+Our display class reads in the from a `stdboard.txt`, which means that in case there is a change in the layout of the board (Eg. Name or placement). All one needs to do is to make changes in the `stdboard.txt`, and these will naturally get reflected in the textdisplay. That is, **you don't even need to fiddle with the codebase!**. Moreover, for printing objects on the a particular box in the textdisplay, we have a vector of _pivot pixel_ (for each box in the textdisplay), so that we can print all the objects relative to that particular pixel in that box. This makes it easier to print more things in the given box.
 
 
 ## coupleing and col
