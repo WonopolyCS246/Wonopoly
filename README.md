@@ -314,7 +314,7 @@ Thus, to summarize
 
 
 ## Extendibilty 
-It was our utmost priority to make our code extendible. This was the reason why we had implemented the **Observer Pattern**. In the given board, we had atmost 2 more buildings, that too in our immediate proximity. Thus, by Observer Pattern we were able to overcome both of these restrictions - placement and number. This means that no matter how many buildings we have and irrespective of the location of the buildings on the board - we will be able to check for monopoly and/or if it has improvements. 
+It was our utmost priority to make our code extendible. This was the reason why we had implemented the **Observer Pattern**. In the given board, we had atmost 2 more buildings in our Faculty, and that too in our immediate proximity. Thus, by Observer Pattern we were able to overcome both of these restrictions - placement and number. This means that no matter how many buildings we have and irrespective of the location of the buildings on the board - we will be able to check for monopoly and/or if it has improvements. 
 
 ## coupleing and col
 
