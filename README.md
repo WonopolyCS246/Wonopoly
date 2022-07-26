@@ -279,13 +279,41 @@ We wanted to finish a mojarity amount of work over the first weekend, just to ha
 
 
 ### Using ncurses for textdisplay
-We could have used `std::cout` to output the whole grid in the terminal itself, however, we felt that it would be extremely cumbersome - considering that it was such a huge grid. Moreover, ncurses library gave us more flexibility in our output (in terms of formatting and aesthetics). **BUT** a major downside is that ncurses has known memory leaks. [FAQ Leaks][URLLeak]
+We could have used `std::cout` to output the whole grid in the terminal itself, however, we felt that it would be extremely cumbersome - considering that it was such a huge grid. Moreover, `ncurses` (C) library gave us more flexibility in our output (in terms of formatting and aesthetics). **BUT** a major downside is that ncurses has known memory leaks. [FAQ Leaks][URLLeak]
+
  > Perhaps you used a tool such as dmalloc or valgrind to check for memory leaks. It will normally report a lot of memory still in use. That is normal. The ncurses configure script has an option, --disable-leaks, which you can use to continue the analysis. It tells ncurses to free memory if possible. However, most of the in-use memory is “permanent” (normally not freed).
 
 This problem is very evident in the case, when one is implementing screens multiple times in the same program. In our testing, we were able to conclude that using the same instance of the display class would result "more" memory leak than making a new instance of our display class and rendering a new textdisplay. This is also mentioned in the release notes for [ncurses-6.0-2][URL602]
 
+An ncurses program will resemble the following structure 
+```C++
+initscr(); // To initialize a window
+printw("This prints on the screen");
+// printw takes in a const char * , and displays it on the window
+// In case you want to use C++ style strings, you can use c_str()
+// method to convert C++ strings to const char *
+// One can also change the formatting of the window by using 
+// attron(<Enum::Case>) take in cases like A_BOLD (For bold output)
+refresh();
+getchar();
+// Get char will wait until a character is provided to the screen
+// You can also use scanw(), which is similar to scanf()
+endwin();
+// This will free (some memory, as discussed above)
+```
+
+Thus, to summarize 
+- We know that there is a _persistant memory leak_ in our program because of `ncurses`
+- According to our research, it is possible to mitigate it, but (for us) not possible to prevent it
+- Primarily, because even after calling `endwin()` ncurses will still have some pointer to the instance to improve performance. 
+- Our testing, helped us realised making different instance(s) of ncurses window can help palliate issue.
 
 
+
+
+## Extendibilty 
+
+## coupleing and col
 
 [URL602]:https://lists.gnu.org/archive/html/bug-ncurses/2017-03/msg00011.html
 [URLLeak]:https://invisible-island.net/ncurses/ncurses.faq.html#config_leaks
