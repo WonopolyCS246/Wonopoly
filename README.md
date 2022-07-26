@@ -308,10 +308,13 @@ Thus, to summarize
 - Primarily, because even after calling `endwin()` ncurses will still have some pointer to the instance to improve performance. 
 - Our testing, helped us realised making different instance(s) of ncurses window can help palliate issue.
 
-
+## Cohesion and Coupling
+### High Cohesion
+### Low Coupling
 
 
 ## Extendibilty 
+
 
 ## coupleing and col
 
