@@ -322,7 +322,9 @@ The same can be said for our **display class**; `textdisplay` and `Interface`
 
 Our display class reads in the from a `stdboard.txt`, which means that in case there is a change in the layout of the board (Eg. Name or placement). All one needs to do is to make changes in the `stdboard.txt`, and these will naturally get reflected in the textdisplay. That is, **you don't even need to fiddle with the codebase!**. 
 
-Moreover, for printing objects on the a particular box in the textdisplay, we have a vector of _pivot pixel_ (for each box in the textdisplay), so that we can print all the objects relative to that particular pixel in that box. This makes it easier to print more things in the given box. This functionality was the reason why our game can support 6 players (and has the potential to display upto 12 players, if the need arises). Alongwith this, our display class also has a struct `PrintHeader`, using which it prints 'characters' all over the board on the provided pixel, because of which our method `textdisplay` only takes in **three parameters** , which are `(std::vector<Player *> Player_Ptrs, std::vector<char> Player_Dis, std::vector<Property *> Cards)`
+Moreover, for printing objects on the a particular box in the textdisplay, we have a vector of _pivot pixel_ (for each box in the textdisplay), so that we can print all the objects relative to that particular pixel in that box. This makes it easier to print more things in the given box. This functionality was the reason why our game can support 6 players (and has the potential to display upto 12 players, if the need arises). 
+
+Alongwith this, our display class also has a struct `PrintHeader`, using which it prints 'characters' all over the board on the provided pixel, because of which our method `textdisplay` only takes in **three parameters** , which are `(std::vector<Player *> Player_Ptrs, std::vector<char> Player_Dis, std::vector<Property *> Cards)`
 
 
 ## coupleing and col
