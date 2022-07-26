@@ -280,6 +280,9 @@ We wanted to finish a mojarity amount of work over the first weekend, just to ha
 
 ### Using ncurses for textdisplay
 We could have used `std::cout` to output the whole grid in the terminal itself, however, we felt that it would be extremely cumbersome - considering that it was such a huge grid. Moreover, ncurses library gave us more flexibility in our output (in terms of formatting and aesthetics). **BUT** a major downside is that ncurses has known memory leaks. 
+ > " Perhaps you used a tool such as dmalloc or valgrind to check for memory leaks. It will normally report a lot of memory still in use. That is normal. The ncurses configure script has an option, --disable-leaks, which you can use to continue the analysis. It tells ncurses to free memory if possible. However, most of the in-use memory is “permanent” (normally not freed). "
+
+This problem is very evident in the case, when one is implementing screens multiple times in the same program. In our testing, we were able to conclude that using the same instance of the display class would result "more" memory leak than making a new instance of our display class and rendering a new textdisplay.
 
 
 
