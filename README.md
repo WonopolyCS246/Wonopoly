@@ -329,6 +329,14 @@ Alongwith this, our display class also has a struct `PrintHeader`, using which i
 All of these things were only possible because our code that High Cohesion and Low Coupling. 
 
 
+
+## What lessons did this project teach you about developing software in teams? If you worked alone, what lessons did you learn about writing large programs?
+
+There are pros and cons of working in a group
+### Pros
+You get to learn a lot from your peers, not only about programming concepts but also 
+
+
 ## coupleing and col
 
 [URL602]:https://lists.gnu.org/archive/html/bug-ncurses/2017-03/msg00011.html
