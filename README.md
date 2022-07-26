@@ -328,16 +328,25 @@ Alongwith this, our display class also has a struct `PrintHeader`, using which i
 
 All of these things were only possible because our code that High Cohesion and Low Coupling. 
 
+## coupleing and col
+
 
 
 ## What lessons did this project teach you about developing software in teams? If you worked alone, what lessons did you learn about writing large programs?
 
-There are pros and cons of working in a group
+Obviously, there are pros and cons of working in a group - especially in the context of developing software projects
+
 ### Pros
-You get to learn a lot from your peers, not only about programming concepts but also 
+
+Working on group projects definately helps you learn a lot, like A LOT, not only in terms of programming concepts and practices, but also in terms of work ethics. By running ideas before our group members, we were able to conprehend 
+
+### Cons
+
+Most certainly we were not used to working in groups on a CS Assignment ( We all realise this the hard way XDXD ). Usually we would go about implementing things as per our own whims and fancy, which was definately not an option for this project. Since, we all discussed our implementations - this meant that we had to take into account for everyone's opinion on our implementation. This situation was made worse, because there can be n different ways of implementing the same the thing. Initially, we had a lot of inertia, however, overtime we devised a method to come to a common conlusion. This meant that TOGETHER we were able to comeup with the best possible solution (according to our understanding). 
 
 
-## coupleing and col
+
+
 
 [URL602]:https://lists.gnu.org/archive/html/bug-ncurses/2017-03/msg00011.html
 [URLLeak]:https://invisible-island.net/ncurses/ncurses.faq.html#config_leaks
