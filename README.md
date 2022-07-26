@@ -324,7 +324,9 @@ Our display class reads in the from a `stdboard.txt`, which means that in case t
 
 Moreover, for printing objects on the a particular box in the textdisplay, we have a vector of _pivot pixel_ (for each box in the textdisplay), so that we can print all the objects relative to that particular pixel in that box. This makes it easier to print more things in the given box. This functionality was the reason why our game can support 6 players (and has the potential to display upto 12 players, if the need arises). 
 
-Alongwith this, our display class also has a struct `PrintHeader`, using which it prints 'characters' all over the board on the provided pixel, because of which our method `textdisplay` only takes in **three parameters** , which are `(std::vector<Player *> Player_Ptrs, std::vector<char> Player_Dis, std::vector<Property *> Cards)`
+Alongwith this, our display class also has a struct `PrintHeader`, using which it prints 'characters' all over the board on the provided pixel, because of which our method `textdisplay` only takes in **three parameters** , which are `(std::vector<Player *> Player_Ptrs, std::vector<char> Player_Dis, std::vector<Property *> Cards)` and handles all the other logic in the method itself, thereby ensuring **Encapsulation**.
+
+All of these things were only possible because our code that High Cohesion and Low Coupling. 
 
 
 ## coupleing and col
