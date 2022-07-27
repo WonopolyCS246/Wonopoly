@@ -453,6 +453,27 @@ style Rl fill:#bba
 ```
 
 
+```mermaid 
+flowchart TD
+
+HRT(Handle Pre/Post)
+Sv(Save)
+Rl(Roll)
+Um(Unmortgaged)
+M(Mortgaged)
+As(Assets)
+Al(All)
+Tr(Trade)
+
+HRT --> Tr
+HRT --> Sv
+HRT --> Rl
+HRT --> M
+HRT --> Um
+HRT --> Al
+HRT --> As
+
+```
 
 
 
