@@ -358,9 +358,20 @@ I believe that we might have implemented certain features of our project differe
 
 5. We could have also considered using the Observer Pattern for textdisplay. Currently, we are passing our player and card vectors to the textdisplay class, allowing it to use the required information and print the board, along with the players, owner and increments, to the screen.
 
+```mermaid 
+flowchart TD
+A(Load / Start New Game)
+B(Start the Game)
+C(Check If We Already Have a Winner)
+D(Handle End)
+E(Play)
 
+A --> B
+B --> C
+C --> D
+C --> E
 
-
+```
 [URL602]:https://lists.gnu.org/archive/html/bug-ncurses/2017-03/msg00011.html
 [URLLeak]:https://invisible-island.net/ncurses/ncurses.faq.html#config_leaks
 
