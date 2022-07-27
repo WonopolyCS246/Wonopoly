@@ -371,6 +371,7 @@ B --> C
 C --> D
 C --> E
 
+style E fill:#bab
 ```
 
 ```mermaid 
@@ -411,7 +412,10 @@ Rl --> Sv
 Rl --> HPt
 HPt --> HEn
 HPt --> Sv
+
 ```
+
+
 
 [URL602]:https://lists.gnu.org/archive/html/bug-ncurses/2017-03/msg00011.html
 [URLLeak]:https://invisible-island.net/ncurses/ncurses.faq.html#config_leaks
