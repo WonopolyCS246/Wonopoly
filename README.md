@@ -393,6 +393,26 @@ HPt --> HEn
 HPt --> Sv
 ```
 
+```mermaid 
+flowchart TD
+P(Play)
+HPr(Handle Pre)
+HPt(Handle Post)
+HEn(Handle End)
+Rl(Roll)
+Sv(Save)
+
+P --> HPr
+HPr --> HEn
+HPr --> Sv
+HPr --> Rl
+Rl --> HEn
+Rl --> Sv
+Rl --> HPt
+HPt --> HEn
+HPt --> Sv
+```
+
 [URL602]:https://lists.gnu.org/archive/html/bug-ncurses/2017-03/msg00011.html
 [URLLeak]:https://invisible-island.net/ncurses/ncurses.faq.html#config_leaks
 
