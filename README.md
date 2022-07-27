@@ -334,16 +334,29 @@ All of these things were only possible because our code that High Cohesion and L
 
 ## What lessons did this project teach you about developing software in teams? If you worked alone, what lessons did you learn about writing large programs?
 
-Obviously, there are pros and cons of working in a group - especially in the context of developing software projects
+Obviously, there are pros and cons of working in a group - especially in the context of developing software projects.
 
 ### Pros
 
-Working on group projects definately helps you learn a lot, like A LOT, not only in terms of programming concepts and practices, but also in terms of work ethics. By running ideas before our group members, we were able to conprehend 
+Working on group projects definitely helps you learn a lot, like A LOT, not only in terms of programming concepts and practices, but also in terms of work ethics. By running ideas past our group members, we were able to comprehend 
 
 ### Cons
 
 Most certainly we were not used to working in groups on a CS Assignment ( We all realise this the hard way XDXD ). Usually we would go about implementing things as per our own whims and fancy, which was definately not an option for this project. Since, we all discussed our implementations - this meant that we had to take into account for everyone's opinion on our implementation. This situation was made worse, because there can be n different ways of implementing the same the thing. Initially, we had a lot of inertia, however, overtime we devised a method to come to a common conlusion. This meant that TOGETHER we were able to comeup with the best possible solution (according to our understanding). 
 
+## What would you have done differently if you had the chance to start over?
+
+I believe that we might have implemented certain features of our project differently and structured our classes in the UML differently. The bullet points below describe the changes we would have made:
+
+1. We would have considered creating an abstract Ownable class and an abstract Non-Ownable class, as child classes of the abstract Property class. All other classes such as Academic Buildings, Residences, Gyms, Dc Tims Line, Slc etc. would have inherited from these 2 abstract Ownable and Non-Ownable classes instead of from the abstract Property directly. This would allow Property pointers to directly know whether the property they are pointing at is ownable or non-ownable.
+
+2. We would have added a string field to the abstract Property class called name that would store the name of the property being pointed at. With the help of getters and setters, we would store 40 different names for the 40 different cards on the board. Currently, we have `string name` as a member of each of the child classes but it would have been easier to just store the name field in the abstract Property class as it must exist for each of the child classes.
+
+3. Currently, we have a large portion of our implementation in the Grid class to handle the various checks and conditions of the game. This is because we have our players and cards vector in the grid class so it was easier to handle all the events this way. For example, the addOwner method does not charge rent to the new owner. That is handled by Grid before addOwner is called. However, this has made our Grid implementation quite large. Something different here would have been to add more functionality in the apply rule of our child classes and reduce the load on the Grid class. We would have considered structuring the classes differently to allow for this new implementation.
+
+4. Currently, we have various different error classes to account for the different scenarios that can arise throughout the game. We could have added inheritance to the error classes as well, by creating an Exception superclass and making all the current error classes, child classes of that superclass. This would have made catching errors in Grid easier as we would just have to catch the superclass Exception and it would know which child class to use.
+
+5. We could have also considered using the Observer Pattern for textdisplay. Currently, we are passing our player and card vectors to the textdisplay class, allowing it to use the required information and print the board, along with the players, owner and increments, to the screen.
 
 
 
