@@ -476,6 +476,23 @@ HRT --> As
 ```
 
 
+```mermaid 
+flowchart TD
+
+HR(Handle Rent)
+EM(If Enough Money)
+CM(Charge Money)
+R(Raise)
+HB(Handle Bankrupty)
+
+HR --> EM
+EM --> CM
+EM --> R
+R --> CM
+R --> HB
+
+```
+
 
 [URL602]:https://lists.gnu.org/archive/html/bug-ncurses/2017-03/msg00011.html
 [URLLeak]:https://invisible-island.net/ncurses/ncurses.faq.html#config_leaks
