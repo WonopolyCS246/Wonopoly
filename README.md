@@ -413,7 +413,46 @@ Rl --> HPt
 HPt --> HEn
 HPt --> Sv
 
+style Rl fill:#bba
 ```
+
+
+```mermaid 
+flowchart TD
+Rl(Roll)
+At(At Tims?)
+DC(Handle DC Tims)
+Nw(New Property?)
+y(Yes)
+HNw(Handle New Property)
+n(No)
+Wl(Player Willing to Buy?)
+HBR(Handle Buying/Raising)
+HA(Handle Auction)
+SNH( At SLC or NHall? )
+HS( Handle SLC )
+HN( Handle NHall )
+HC( Handle Charge )
+
+
+Rl --> At
+At --> DC
+At --> Nw
+Nw --> y
+Nw --> n
+y --> HNw
+HNw --> Wl
+Wl --> HBR
+Wl --> HA
+n --> SNH
+SNH --> HS
+SNH --> HN
+SNH --> HC
+
+style Rl fill:#bba
+```
+
+
 
 
 
